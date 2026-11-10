@@ -26,13 +26,23 @@ import json
 import sys
 import textwrap
 
-CORE_PROMPTS: list[str] = [
-    "How could we guarantee that {target}?",
-    "What would make {target} impossible?",
-    "How would a competent adversary make {target}?",
-    "How would a well-meaning team sabotage {target} without noticing?",
-    "What would we do if we were paid to make {target}?",
-    "What did the last five attempts at this do that kept {target} from happening?",
+CORE_GOAL_PROMPTS: list[str] = [
+    "How could we guarantee that this fails: {target}?",
+    "How could we guarantee that this never happens: {target}?",
+    "What would make this impossible: {target}?",
+    "How would a competent adversary prevent this: {target}?",
+    "How would a well-meaning team sabotage this without noticing?",
+    "What would we do if we were paid to prevent this?",
+    "What did the last five attempts do that kept this from happening?",
+]
+
+CORE_OUTCOME_PROMPTS: list[str] = [
+    "How could we reliably produce: {target}?",
+    "What is the cheapest, most reliable recipe for: {target}?",
+    "How would an incompetent team accidentally produce: {target}?",
+    "Who is already rewarded for producing: {target}?",
+    "What would we do if we were paid to produce: {target}?",
+    "What conditions make this the default outcome: {target}?",
 ]
 
 DOMAINS: list[tuple[str, list[str]]] = [
@@ -153,6 +163,7 @@ def build(goal: str | None, outcome: str | None, domains: list[str]) -> dict:
         fail("pass --goal, --outcome, or --route (or --list-domains)")
     mode = "goal" if goal else "outcome"
     selected = [(n, qs) for n, qs in DOMAINS if not domains or n in domains]
+    prompts = CORE_GOAL_PROMPTS if goal else CORE_OUTCOME_PROMPTS
     return {
         "mode": mode,
         "target": target,
@@ -160,7 +171,7 @@ def build(goal: str | None, outcome: str | None, domains: list[str]) -> dict:
             "Generate 15-25 specific routes before judging any of them. "
             "Each route needs a mechanism and an actor; reject labels."
         ),
-        "core_prompts": [p.format(target=target) for p in CORE_PROMPTS],
+        "core_prompts": [p.format(target=target) for p in prompts],
         "domains": {
             name: [q.replace("{target}", target) for q in questions]
             for name, questions in selected
