@@ -20,7 +20,7 @@ List **8–10 literal properties** before asking what they mean. Sweep these cat
 Rules:
 
 - **True first.** If a property is false, it cannot force anything. Mark uncertain knowledge as assumption and drop it from use.
-- **Ten is a floor, not a target.** Stop when further properties are restatements.
+- **Ten is a target, not a quota.** Stop when further properties are restatements.
 - **Write the property, not the lesson.** "One-way" is a property; "gatekeeping" is an interpretation.
 - Do the symbolic category **last** and use it sparingly; it is where clichés enter.
 
