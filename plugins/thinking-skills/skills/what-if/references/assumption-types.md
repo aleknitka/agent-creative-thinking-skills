@@ -134,4 +134,4 @@ Covers latency, frequency, cadence, duration, lifetime, deadlines, and sequence.
 
 ## After choosing
 
-Record the chosen assumption, its type, and the mutation in one sentence. Then move to [branching.md](branching.md). Keep the rejected candidates: they are useful for a later pass, and they show the user what was considered.
+Record the chosen assumption, its type, and the mutation in one sentence. Then branch the world (step 3). Keep the rejected candidates: they are useful for a later pass, and they show the user what was considered.

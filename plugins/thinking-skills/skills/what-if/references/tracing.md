@@ -106,4 +106,4 @@ Loops: reinforcing — more in-flow questions → more captured answers → bett
 
 Transferable candidate: **measure knowledge by answer correctness at the point of need, not by page views.** This survives without the impossible premise.
 
-Move to [examples.md](examples.md) for three complete worlds on one problem, or back to [SKILL.md](../SKILL.md) for step 5.
+Return to SKILL.md for step 5 (extract transferable insight). The examples reference contains three complete worlds on one problem.

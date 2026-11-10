@@ -106,4 +106,4 @@ Artifact: a knowledge base that grows as a by-product of answering questions.
 Open questions: what makes capture cheap? Who arbitrates contradictions?
 ```
 
-Move to [tracing.md](tracing.md) once the sketch is complete.
+Trace the consequences once the sketch is complete (step 4).

@@ -35,9 +35,9 @@ Inherited assumptions:
 
 **Trace**
 
-- **First order:** (+ ) more answers are captured; (+ ) pages refresh faster; (−) duplication and near-duplicates multiply.
-- **Second order:** (+ ) support shifts from writing to curating; (−) readers face more results with less certainty; (−) experts spend the saved time on delivery, not more writing.
-- **Third order:** (+ ) "the answer is written down" becomes normal; (−) authorship-based status erodes; (−) a new curation bottleneck replaces the writing bottleneck.
+- **First order:** (+) more answers are captured; (+) pages refresh faster; (−) duplication and near-duplicates multiply.
+- **Second order:** (+) support shifts from writing to curating; (−) readers face more results with less certainty; (−) experts spend the saved time on delivery, not more writing.
+- **Third order:** (+) "the answer is written down" becomes normal; (−) authorship-based status erodes; (−) a new curation bottleneck replaces the writing bottleneck.
 - **Loop:** reinforcing — more captured answers → better coverage → more questions asked in chat; balancing — more pages → lower trust → back to asking colleagues.
 
 **Transferable insight:** The scarce resource was never writing — it was *capture and curation*. Make answering a question produce a durable artifact automatically, and move expert effort from authoring to arbitration. This works without unlimited time.
@@ -64,9 +64,9 @@ Inherited assumptions:
 
 **Trace**
 
-- **First order:** (+ ) less search effort; (+ ) answers appear at the moment of need; (−) users cannot browse or discover adjacent knowledge.
-- **Second order:** (+ ) content is written for retrieval, not for page structure; (−) gaps become harder to see; (+/−) the assistant's owner becomes the real gatekeeper of organizational memory.
-- **Third order:** (+ ) knowledge quality is measured by answer accuracy; (−) whoever controls the assistant controls what the organization knows; (−) "look it up" disappears as a shared skill.
+- **First order:** (+) less search effort; (+) answers appear at the moment of need; (−) users cannot browse or discover adjacent knowledge.
+- **Second order:** (+) content is written for retrieval, not for page structure; (−) gaps become harder to see; (+/−) the assistant's owner becomes the real gatekeeper of organizational memory.
+- **Third order:** (+) knowledge quality is measured by answer accuracy; (−) whoever controls the assistant controls what the organization knows; (−) "look it up" disappears as a shared skill.
 - **Loop:** reinforcing — more in-flow questions → more captured answers → better retrieval; balancing — more automated answers → more silent errors → lower trust.
 
 **Transferable insight:** If the interface disappears, *measure knowledge by correctness at the point of need, not by page views*. Add retrieval inside chat now, with citations, and instrument wrong-answer reports even before the content is complete.
@@ -93,9 +93,9 @@ Inherited assumptions:
 
 **Trace**
 
-- **First order:** (+ ) day-one questions get answered; (−) search success drops for existing users as orientation content floods results.
-- **Second order:** (+ ) content is reorganized around tasks and roles; (−) department owners resist reframing their pages; (+ ) new hires ask better questions after week one.
-- **Third order:** (+ ) documentation becomes onboarding infrastructure, not an archive; (−) whoever owns the onboarding path shapes what new people believe; (−) deep reference material gets less attention.
+- **First order:** (+) day-one questions get answered; (−) search success drops for existing users as orientation content floods results.
+- **Second order:** (+) content is reorganized around tasks and roles; (−) department owners resist reframing their pages; (+) new hires ask better questions after week one.
+- **Third order:** (+) documentation becomes onboarding infrastructure, not an archive; (−) whoever owns the onboarding path shapes what new people believe; (−) deep reference material gets less attention.
 - **Loop:** reinforcing — better day-one answers → new hires contribute corrections sooner → content improves; balancing — more orientation content → more duplication → curation load rises.
 
 **Transferable insight:** Design for the person who does not know the words, not the person who knows what to search for. Role-based entry paths and plain-language query mapping help everyone, not just new hires.
