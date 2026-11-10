@@ -22,19 +22,28 @@ import json
 import random
 import re
 import sys
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
+# Coarse families are the teaching lenses; subtypes are what the helper prints.
 FAMILIES = ("origin", "source", "boundary", "continuity", "unclassified")
 
 FAMILY_HELP = {
     "origin": "Inherited convention versus proven constraint. Ask who decided, when, and on what evidence.",
-    "source": "A belief attributed to a stakeholder or to a system/policy/tool. Separate preference from invariant.",
+    "source": "Attributed to a stakeholder or to a system/policy/tool. Separate preference from invariant.",
     "boundary": "Where the box was drawn: scope, users, channels, budget, deadline, geography.",
     "continuity": "Assumed order, sequence, or persistence: 'must first', 'always', 'this step'.",
     "unclassified": "No reliable cue. Restate as a prediction and test it directly.",
 }
 
-TESTS = ("falsify", "unnecessary", "reverse")
+SUBTYPE_HELP = {
+    "origin/inherited": "Inherited convention: nobody in the room chose it, and no evidence is on file.",
+    "origin/proven": "Proven constraint: a test, incident, contract, or physical limit stands behind it.",
+    "source/stakeholder": "A belief attributed to people: users, customers, managers, regulators, support.",
+    "source/system": "A belief attributed to a mechanism: tool, policy, contract, architecture, economics.",
+    "boundary": "A scope or boundary belief: who/what is inside the problem, and at what cost or deadline.",
+    "continuity": "An order or persistence belief: the sequence, a step, or 'this must stay'.",
+    "unclassified": "No reliable cue. Restate as a prediction and test it directly.",
+}
 
 PROMPTS = {
     "origin": {
@@ -44,36 +53,55 @@ PROMPTS = {
             "Compare with one team or competitor that does the opposite. What do they observe that we do not?",
         ],
         "unnecessary": [
-            "Name the concrete harm this convention prevents today. If the harm is hypothetical, what would removing it break in one low-risk case?",
+            "Name the concrete harm this prevents today. If the harm is hypothetical, what would removing it break in one low-risk case?",
             "If this had never existed, would anyone recreate it now? What would they put in its place?",
             "What is the cheapest bounded exception, and who would have to approve it?",
         ],
         "reverse": [
             "Assume a newcomer chose the opposite convention. What would they do instead, and what would have to be true for it to work?",
-            "If the convention were replaced tomorrow, what would the replacement have to preserve?",
-            "What does the opposite convention make possible that the current one forbids?",
+            "If this were replaced tomorrow, what would the replacement have to preserve?",
+            "What does the opposite make possible that the current belief forbids?",
         ],
         "evidence": "Decision record, incident history, test result, or a team that works differently.",
         "probe": "Search the decision record and incident log (desk check); if none, compare with one team using the opposite convention.",
     },
-    "source": {
+    "stakeholder": {
         "falsify": [
             "Ask the named stakeholder directly, or inspect their behavior. What would they do that contradicts this attribution?",
-            "Read the actual policy, contract, or configuration. Is this an invariant, a default, or someone's local setup?",
-            "Whose words are these, exactly? Find the primary statement rather than the retelling.",
+            "Find the primary statement (quote, ticket, survey) rather than the retelling. Does it say what we think it says?",
+            "Whose preference is this attributed to, and have they been asked recently? What would they say if the cost were theirs?",
         ],
         "unnecessary": [
             "Is this a preference or a hard constraint? What happens if the preference is legitimately overridden?",
-            "Which part of the mechanism actually requires this? Could a different tier or configuration meet the goal?",
             "If the stakeholder never mentioned this, would the plan still need it?",
+            "Could the stakeholder's underlying interest be met another way, without treating this as fixed?",
         ],
         "reverse": [
             "Assume the stakeholder wants the opposite. What would explain that, and what would change?",
-            "If the system allowed the opposite, what would break - and is that a real invariant or a guardrail someone chose?",
-            "Assume the belief belongs to a different owner. Who would enforce it, and would they?",
+            "Assume they do not care. What would you do differently, and who would object?",
+            "Put the cost of this belief on the stakeholder. Would they still hold it?",
         ],
-        "evidence": "Direct quote, observed behavior, primary document, schema, config, or accountable owner.",
-        "probe": "Read the primary policy/schema/config and ask the accountable owner to point to the clause (desk check, then one conversation).",
+        "evidence": "Direct quote, observed behavior, or survey - separate stated from revealed preference.",
+        "probe": "One conversation with the named stakeholder plus one behavioral trace (half day).",
+    },
+    "system": {
+        "falsify": [
+            "Read the actual policy, contract, or configuration. Is this an invariant, a default, or someone's local setup?",
+            "Ask the accountable owner to point to the clause, setting, or test that requires this.",
+            "Try the opposite in a sandbox or non-production copy. What actually blocks it?",
+        ],
+        "unnecessary": [
+            "Which part of the mechanism requires this? Could a different tier, config, or path meet the goal?",
+            "Is this a guardrail someone chose or a hard limit? Who could change the guardrail?",
+            "What would the process look like if this mechanism were unavailable for a day?",
+        ],
+        "reverse": [
+            "If the system allowed the opposite, what would break - and is that a real invariant or a chosen guardrail?",
+            "Assume the constraint applies only to one segment. Which segment, and why?",
+            "Move enforcement to another layer (vendor, contract, review). Does the constraint survive?",
+        ],
+        "evidence": "Primary document, schema, config, sandbox test, or accountable owner.",
+        "probe": "Read the primary policy/schema/config and ask the accountable owner to cite the clause (desk check).",
     },
     "boundary": {
         "falsify": [
@@ -97,8 +125,8 @@ PROMPTS = {
     "continuity": {
         "falsify": [
             "Does the order or step have a test or incident behind it? What happens if it runs in parallel, backwards, or not at all?",
+            "Has this step or order ever been skipped under pressure or in a workaround? What happened to the outcome?",
             "Which step exists only because the previous step exists?",
-            "Has anyone tried the sequence differently, even as a workaround? What happened?",
         ],
         "unnecessary": [
             "Remove the step in thought (or in a dry run). Which guarantee actually disappears?",
@@ -134,15 +162,26 @@ PROMPTS = {
     },
 }
 
-# Keyword cues, checked in order. The first matching family wins; the label is a
-# suggestion for the inventory, not a verdict about the belief.
-CUE_ORDER = (
-    ("source", re.compile(r"\b(polic(?:y|ies)|platform|system|tool|vendor|api|architecture|database|schema|integration|contract|regulat\w*|compliance|budget|headcount)\b", re.I)),
-    ("boundary", re.compile(r"\b(only|within|inside|outside|scope|deadline|quarter|market|region|channel|cannot|can't|no more than|limited to|budget|headcount|geograph\w*)\b", re.I)),
-    ("continuity", re.compile(r"\b(before|after|first|then|next|order|sequence|steps?|workflow|process|must|has to|have to|needs? to|requires?|always|never|every)\b", re.I)),
-    ("source", re.compile(r"\b(users?|customers?|clients?|people|stakeholders?|managers?|leadership|executives?|team|support|sales)\b", re.I)),
-    ("origin", re.compile(r"\b(best practice|tradition|standard|usually|industry|everyone|we've|we have|convention|norm|habit)\b", re.I)),
-    ("origin", re.compile(r"\b(measured|tested|observed|logged|verified|evidence|rate[- ]?limit)\b", re.I)),
+# Checked in order; first hit wins. Labels are suggestions for the inventory,
+# not verdicts about the belief.
+SUBTYPE_CUES = (
+    ("source/system", re.compile(
+        r"\b(polic(?:y|ies)|platform|system|tool|vendor|api|architecture|database|schema|"
+        r"integration|contract|regulat\w*|compliance|budget|headcount)\b", re.I)),
+    ("boundary", re.compile(
+        r"\b(only|within|inside|outside|scope|deadline|quarter|market|region|channel|"
+        r"cannot|can't|no more than|limited to|budget|headcount|geograph\w*)\b", re.I)),
+    ("origin/proven", re.compile(
+        r"\b(measured|tested|observed|logged|verified|evidence|rate[- ]?limit|contractual)\b", re.I)),
+    ("origin/inherited", re.compile(
+        r"\b(best practice|tradition|standard|usually|industry|everyone|we've|we have|"
+        r"convention|norm|habit|always)\b", re.I)),
+    ("continuity", re.compile(
+        r"\b(before|after|first|then|next|order|sequence|steps?|workflow|process|must|"
+        r"has to|have to|needs? to|requires?|never|every)\b", re.I)),
+    ("source/stakeholder", re.compile(
+        r"\b(users?|customers?|clients?|people|stakeholders?|managers?|leadership|"
+        r"executives?|team|support|sales)\b", re.I)),
 )
 
 MODAL_CUE = re.compile(
@@ -165,17 +204,30 @@ class Belief:
 
 
 def classify(text: str) -> str:
-    for family, pattern in CUE_ORDER:
+    for subtype, pattern in SUBTYPE_CUES:
         if pattern.search(text):
-            return family
+            return subtype
     return "unclassified"
+
+
+def pack_for(subtype: str) -> str:
+    if subtype == "source/stakeholder":
+        return "stakeholder"
+    if subtype == "source/system":
+        return "system"
+    return subtype.split("/")[0]
+
+
+def normalize(text: str) -> str:
+    text = text.strip()
+    return text if text.endswith((".", "?", "!")) else text + "."
 
 
 def split_assumptions(raw: str | None) -> list[str]:
     if not raw:
         return []
     parts = re.split(r"[;\n]+", raw)
-    return [p.strip().rstrip(".") + "." for p in parts if p.strip()]
+    return [normalize(p) for p in parts if p.strip()]
 
 
 def extract_candidates(problem: str, limit: int = 5) -> list[str]:
@@ -192,13 +244,13 @@ def build(assumptions: list[str], seed: int) -> list[Belief]:
     rng = random.Random(seed)
     rows: list[Belief] = []
     for i, text in enumerate(assumptions, 1):
-        family = classify(text)
-        pack = PROMPTS[family]
+        subtype = classify(text)
+        pack = PROMPTS[pack_for(subtype)]
         rows.append(
             Belief(
                 id=f"A{i}",
                 assumption=text,
-                type=family,
+                type=subtype,
                 status="unverified",
                 falsify=rng.choice(pack["falsify"]),
                 unnecessary=rng.choice(pack["unnecessary"]),
@@ -210,12 +262,16 @@ def build(assumptions: list[str], seed: int) -> list[Belief]:
     return rows
 
 
+def esc(value: str) -> str:
+    return value.replace("|", "\\|").replace("\n", " ")
+
+
 def render_markdown(problem: str, rows: list[Belief], notes: list[str]) -> str:
     out = ["# Assumption inventory", ""]
     if problem:
         out += ["**Problem statement:** " + problem.strip(), ""]
     out += [
-        "All beliefs start **unverified**. Labels are prompts for judgment, not evidence.",
+        "All beliefs start **unverified**. Type labels are suggestions, not verdicts.",
         "",
     ]
     if notes:
@@ -240,7 +296,7 @@ def render_markdown(problem: str, rows: list[Belief], notes: list[str]) -> str:
     out += [
         "",
         "Rank by **impact x uncertainty** before testing; test the top handful, not all rows.",
-        "Each probe needs a decision rule written before it runs.",
+        "Write a decision rule before each probe runs.",
         "",
         "Coverage prompts if the table feels thin:",
     ]
@@ -285,13 +341,19 @@ def render_json(problem: str, rows: list[Belief], notes: list[str], seed: int) -
     )
 
 
+DECISION_RULE = (
+    "keep if supported; reframe if contradicted; inconclusive -> next probe "
+    "or accept provisionally with a review trigger; label result fact/assumption/speculation"
+)
+
+
 def render_test_markdown(rows: list[Belief]) -> str:
     out = ["# Pressure-test plan", ""]
     for r in rows:
         out += [
             f"## {r.id}. {r.assumption}",
             "",
-            f"- **Suggested type:** {r.type} - {FAMILY_HELP[r.type]}",
+            f"- **Suggested type:** {r.type} - {SUBTYPE_HELP[r.type]}",
             f"- **Status:** {r.status}",
             "",
             "### 1. Falsification test",
@@ -308,7 +370,8 @@ def render_test_markdown(rows: list[Belief]) -> str:
             "",
             f"- **Evidence to gather:** {r.evidence}",
             f"- **Cheapest probe:** {r.probe}",
-            "- **Decision rule (fill before running):** keep if ___; reframe if ___; inconclusive -> next probe or accept provisionally with a review trigger.",
+            "- **Decision rule (fill before running):** keep if ___; reframe if ___; "
+            "inconclusive -> next probe or accept provisionally with a review trigger.",
             "- **Label the result:** fact / assumption / speculation.",
             "",
         ]
@@ -322,15 +385,16 @@ def render_test_markdown(rows: list[Belief]) -> str:
 def render_test_csv(rows: list[Belief]) -> str:
     buf = io.StringIO()
     writer = csv.writer(buf)
-    writer.writerow(["id", "assumption", "type_suggested", "test", "question", "evidence", "probe", "decision_rule"])
+    writer.writerow(
+        ["id", "assumption", "type_suggested", "test", "question", "evidence", "probe", "decision_rule"]
+    )
     for r in rows:
-        rule = "keep if supported; reframe if contradicted; inconclusive -> next probe; label result"
         for test, question in (
             ("falsify", r.falsify),
             ("unnecessary", r.unnecessary),
             ("reverse", r.reverse),
         ):
-            writer.writerow([r.id, r.assumption, r.type, test, question, r.evidence, r.probe, rule])
+            writer.writerow([r.id, r.assumption, r.type, test, question, r.evidence, r.probe, DECISION_RULE])
     return buf.getvalue()
 
 
@@ -350,26 +414,22 @@ def render_test_json(rows: list[Belief], seed: int) -> str:
                 },
                 "evidence_needed": r.evidence,
                 "cheapest_probe": r.probe,
-                "decision_rule": "keep if supported; reframe if contradicted; inconclusive -> next probe; label result",
+                "decision_rule": DECISION_RULE,
             }
         )
     return json.dumps({"seed": seed, "count": len(items), "assumptions": items}, indent=2)
 
 
-def esc(value: str) -> str:
-    return value.replace("|", "\\|").replace("\n", " ")
-
-
 def list_families() -> str:
     lines = [
-        "Belief families and example prompts",
+        "Belief subtypes and example prompts",
         "===================================",
         "",
     ]
-    for family in FAMILIES:
-        lines += [f"{family}: {FAMILY_HELP[family]}", ""]
-        pack = PROMPTS[family]
-        for test in TESTS:
+    for subtype, help_text in SUBTYPE_HELP.items():
+        pack = PROMPTS[pack_for(subtype)]
+        lines += [f"{subtype}: {help_text}", ""]
+        for test in ("falsify", "unnecessary", "reverse"):
             lines.append(f"  {test}: {pack[test][0]}")
         lines += [f"  evidence: {pack['evidence']}", f"  probe: {pack['probe']}", ""]
     lines += [
@@ -406,7 +466,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--test", action="store_true", help="Emit a detailed falsify/unnecessary/reverse plan")
     parser.add_argument("--seed", type=int, default=0, help="Seed for prompt variant selection (default 0)")
     parser.add_argument("--format", choices=("md", "csv", "json"), default="md", help="Output format (default md)")
-    parser.add_argument("--list", action="store_true", help="List belief families and prompt examples, then exit")
+    parser.add_argument("--list", action="store_true", help="List belief subtypes and prompt examples, then exit")
     args = parser.parse_args(argv)
 
     if args.list:
@@ -414,16 +474,15 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     problem = (args.problem or "").strip()
-    assumptions = [a.strip().rstrip(".") + "." for a in args.assumption if a.strip()]
+    assumptions = [normalize(a) for a in args.assumption if a.strip()]
     assumptions += split_assumptions(args.assumptions)
 
     notes: list[str] = []
     if not assumptions and problem:
-        extracted = extract_candidates(problem)
-        assumptions = [a if a.endswith((".", "?", "!")) else a + "." for a in extracted]
+        assumptions = [normalize(a) for a in extract_candidates(problem)]
         notes.append(
-            "No --assumption supplied; rows below are modal/ordering clauses extracted from the problem statement. "
-            "Add explicit beliefs for coverage across boundary and source."
+            "No --assumption supplied; rows below are modal/ordering clauses extracted from the problem "
+            "statement. Add explicit beliefs for coverage across boundary and source."
         )
     elif not assumptions:
         parser.error("provide --problem or at least one --assumption (or use --list)")
