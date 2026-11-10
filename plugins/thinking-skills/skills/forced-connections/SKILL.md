@@ -31,7 +31,7 @@ If unsure whether this is the right method, start with [thinking-router](../thin
 
 1. **Intake.** In one sentence each: the problem, the goal behind it, hard constraints, baseline ideas already on the table, and appetite for weirdness (low / medium / high). The baseline matters — novelty is measured against it. Reuse context; ask only for gaps. Do not choose a stimulus that flatters a solution you already want.
 
-2. **Choose the stimulus type.** Pick **word, object, image, or concept** by what you need: words are cheap and abstract, objects are affordance-rich, images resist vocabulary, concepts bring a developed mechanism. Use [references/stimuli.md](references/stimuli.md) for selection criteria and failure modes.
+2. **Choose the stimulus type.** Pick a **random word, object, image, or concept** by what you need: words are cheap and abstract, objects are affordance-rich, images resist vocabulary, concepts bring a developed mechanism. Use [references/stimuli.md](references/stimuli.md) for selection criteria and failure modes.
 
 3. **Generate the stimulus.** Draw from an arbitrary source: the offline helper, a random page, an object on the desk, a captionless photo. Generate **3–5 candidates and pick one without curating for relevance**. If you can say in one sentence why the stimulus relates to your domain, reject it and redraw. Record the stimulus verbatim and its source.
 
