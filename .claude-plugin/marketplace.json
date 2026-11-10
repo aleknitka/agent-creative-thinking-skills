@@ -1,0 +1,19 @@
+{
+  "name": "agent-thinking-skills",
+  "owner": {
+    "name": "alek"
+  },
+  "metadata": {
+    "description": "Skills that help agents reason better, think more creatively, and explore ideas more broadly."
+  },
+  "plugins": [
+    {
+      "name": "thinking-skills",
+      "source": "./plugins/thinking-skills",
+      "description": "Creative thinking and reasoning skills for agents: divergent ideation, structured reasoning, and more.",
+      "version": "0.1.0",
+      "category": "reasoning",
+      "keywords": ["creativity", "reasoning", "brainstorming", "thinking"]
+    }
+  ]
+}

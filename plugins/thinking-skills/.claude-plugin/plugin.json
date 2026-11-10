@@ -1,0 +1,9 @@
+{
+  "name": "thinking-skills",
+  "version": "0.1.0",
+  "description": "Creative thinking and reasoning skills for agents.",
+  "author": {
+    "name": "alek"
+  },
+  "keywords": ["creativity", "reasoning", "brainstorming", "thinking"]
+}
