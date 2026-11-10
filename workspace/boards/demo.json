@@ -1,0 +1,22 @@
+{
+  "id": "demo",
+  "title": "Onboarding — activation (demo)",
+  "template": "brainwriting",
+  "lanes": [
+    { "id": "lane-1", "title": "P1" },
+    { "id": "lane-2", "title": "P2" },
+    { "id": "lane-3", "title": "P3" }
+  ],
+  "notes": [
+    { "id": "n1", "text": "Invite carries intent → skip tour", "laneId": "lane-1", "color": "#ffeb3b", "votes": 3, "tag": "fact", "x": 40, "y": 72 },
+    { "id": "n2", "text": "Checklist on real data inside first task", "laneId": "lane-1", "color": "#c8e6c9", "votes": 1, "tag": "action", "x": 46, "y": 158 },
+    { "id": "n3", "text": "What if there were no interface at all?", "laneId": "lane-2", "color": "#ffe0b2", "votes": 0, "tag": "question", "x": 240, "y": 72 },
+    { "id": "n4", "text": "Peer artifact as entry (teammate shares work)", "laneId": "lane-3", "color": "#81d4fa", "votes": 2, "tag": "assumption", "x": 440, "y": 72 },
+    { "id": "n5", "text": "Pre-configure template before first open", "laneId": "lane-2", "color": "#ffeb3b", "votes": 1, "tag": "fact", "x": 246, "y": 156 },
+    { "id": "n6", "text": "Who pays the cost we are not seeing? (stakeholders)", "laneId": "lane-3", "color": "#ffe0b2", "votes": 0, "tag": "question", "x": 446, "y": 158 }
+  ],
+  "drawings": [],
+  "createdAt": "2026-11-10T00:00:00.000Z",
+  "updatedAt": "2026-11-10T00:00:00.000Z",
+  "schema": "boards/_schema.json"
+}

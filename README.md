@@ -1,6 +1,6 @@
 # agent-thinking-skills
 
-Skills that help agents reason better, think more creatively, and explore ideas more broadly. Distributed as a Claude Code plugin marketplace. Targets **Codex and Claude Code**.
+Skills that help agents reason better, think more creatively, and explore ideas more broadly. Distributed as a Claude Code plugin marketplace. Targets **Codex and Claude Code**. 29 skills, a router, an example gallery, two agent workflows, and a shared workspace.
 
 ## Install
 
@@ -73,8 +73,48 @@ Full method list and triggers: `plugins/thinking-skills/skills/thinking-router/r
 Source catalog: `megamouth/docs/creative-thinking-methodologies.md`.
 Examples run offline where noted via `scripts/*.py` (seeded, deterministic, no network).
 
+## Example Gallery
+
+Copy-paste prompts for every category — no setup beyond installing the plugin. Each prompt lists the skill, the artifact it produces, and the offline helper where applicable.
+
+**Start here:** `examples/gallery.md` — Quick start (60 s) → one demo per category → end-to-end `thinking-router → skill → probe` chain → links to catalog, workflows, and `references/provenance.md`.
+
+Offline helpers you can try without an agent:
+```bash
+python plugins/thinking-skills/skills/thinking-router/scripts/route.py --text "brief is vague, are we asking the right question?"
+python plugins/thinking-skills/skills/lateral-thinking/scripts/random_entry.py --count 3 --seed 7 --problem "retention drops in week 2"
+python plugins/thinking-skills/skills/scamper/scripts/scamper.py --subject "welcome letter — sent 3 days after signup" --select S,E
+```
+
+## Agent Workflows
+
+Single-conversation skills cover most cases; workflows add orchestration when humans and agents run together. Both live in `plugins/thinking-skills/workflows/` and are linked from the relevant `SKILL.md` via `Going deeper`.
+
+| Workflow | Topology | Use |
+|---|---|---|
+| `brainwriting-workflow.md` | **Parallel** — fan N=3 generators via `task` in one `tasks[]` batch (silent pass1 → self-build pass2), one rotation build pass, then freeze → main-agent cluster (3–6 clusters) → harvest 2–3 concepts + probes | Group anchors early or is spread across timezones; you need 30–100 distinct ideas plus build edges. Otherwise use `skills/brainwriting/SKILL.md` solo. |
+| `six-thinking-hats-workflow.md` | **Sequential** — Blue opens (chooses sequence via `scripts/sequence.py`) → chain White→Red→Yellow→Black→Green (parallel participants *inside* each hat, hats strictly sequential) → Blue closes (per-hat outputs → tensions → decision) | Critique interrupts brainstorming; you need one-hat-at-a-time enforced. Otherwise use `skills/six-thinking-hats/SKILL.md` solo. |
+
+`thinking-router` can hand off to either workflow with user confirmation; the handoff note carries intake context.
+
+## Workspace — shared board for humans + agents
+
+Lightweight browser workspace — sticky notes, lanes/columns, drawing, dot voting, timer, clustering, and agent file I/O. No build step, no deps, vanilla JS. Open `workspace/index.html` in a browser; agents and humans share `workspace/boards/<id>.json`.
+
+```
+# open
+open workspace/index.html              # or: python -m http.server 8000
+# ?board=onboarding-q3 → workspace/boards/onboarding-q3.json
+```
+
+**Aids:** sticky notes (text, color, votes, fact/assumption/speculation/action/question), lanes/columns (hats, SCAMPER, sheets, phases, storyboard), freehand/line drawing on canvas, dot voting (`+` / lane header), timer (5/10/15 min), clustering by lane/`clusterId`, import/export **JSON** (`boards/_schema.json`) + **PNG**.
+
+**Agent I/O:** read/write `workspace/boards/<id>.json`; file drop or `window.workspace.apply(state)` in the browser; optional `POST /api/state` via the ~40-line companion server when localStorage is not enough. See `workspace/boards/_schema.json` and the demo board `workspace/boards/demo.json`.
+
+**Templates:** blank · six hats · brainwriting (P1·P2·P3) · SCAMPER (7) · crazy-8s (8) · backcasting timeline · morph box. Research note on reuse-vs-build (Scrumlr, Excalidraw, Drawnix, WBO, Retrospected, Kanvana) lives in `megamouth/research/workspace-aids/report.md`.
+
 ## Contributing
 
 See [CLAUDE.md](CLAUDE.md) for layout and the progressive-disclosure rules. Start new skills from `templates/skill/` and run `python3 scripts/validate.py`.
 
-Versioning: bump `version` in both `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` for releases. Current: `0.2.0` (29 skills).
+Versioning: bump `version` in both `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` for releases. Current: `0.3.0` (29 skills + gallery + workflows + workspace).

@@ -44,3 +44,5 @@ You have 27 methods but one next step. This skill prevents method-shopping and p
 - Worked routing examples: [references/example.md](references/example.md)
 - Handoff and sequencing patterns: [references/handoff.md](references/handoff.md)
 - Runnable helper: [scripts/route.py](scripts/route.py)
+- Agent workflows — parallel (brainwriting) and sequential (six hats): [workflows/brainwriting-workflow.md](../../workflows/brainwriting-workflow.md), [workflows/six-thinking-hats-workflow.md](../../workflows/six-thinking-hats-workflow.md)
+- Shared workspace — sticky notes, lanes, drawing, votes: [workspace/index.html](../../../../workspace/index.html)

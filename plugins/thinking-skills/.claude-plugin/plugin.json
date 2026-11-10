@@ -1,9 +1,22 @@
 {
   "name": "thinking-skills",
-  "version": "0.2.0",
-  "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (29 skills) plus a thinking-router.",
+  "version": "0.3.0",
+  "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (29 skills) plus a thinking-router, gallery, workflows, and shared workspace.",
   "author": {
     "name": "alek"
   },
-  "keywords": ["creativity", "reasoning", "brainstorming", "thinking", "lateral-thinking", "scamper", "thinking-router", "six-thinking-hats", "premortem", "analogical-thinking"]
+  "keywords": [
+    "creativity",
+    "reasoning",
+    "brainstorming",
+    "thinking",
+    "lateral-thinking",
+    "scamper",
+    "thinking-router",
+    "six-thinking-hats",
+    "premortem",
+    "analogical-thinking",
+    "workspace",
+    "whiteboard"
+  ]
 }

@@ -61,3 +61,5 @@ For a concise summary of all six modes, see [references/hats.md](references/hats
 - When not to use + handoff map: [references/when-not-to-use.md](references/when-not-to-use.md)
 - Provenance and evidence: [references/provenance.md](references/provenance.md)
 - Sequence helper (offline): [scripts/sequence.py](scripts/sequence.py)
+- Agent workflow — sequential Blue→hats→Blue, one hat at a time: [workflows/six-thinking-hats-workflow.md](../../workflows/six-thinking-hats-workflow.md)
+- Shared workspace — sticky notes, lanes, drawing, votes: [workspace/index.html](../../../../workspace/index.html)

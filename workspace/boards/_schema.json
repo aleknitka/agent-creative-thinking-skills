@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Thinking Workspace — board",
+  "description": "Agents and humans share workspace/boards/<id>.json. Browser persists to localStorage + file. Keep notes to one idea per row.",
+  "type": "object",
+  "required": ["id", "title", "lanes", "notes"],
+  "properties": {
+    "id": { "type": "string", "description": "board id (url param ?board=<id>, file name <id>.json)" },
+    "title": { "type": "string" },
+    "template": { "type": "string", "enum": ["blank","six-hats","brainwriting","scamper","crazy-eights","backcasting","morph-box"], "default": "blank" },
+    "lanes": {
+      "type": "array",
+      "items": { "type": "object", "required": ["id","title"], "properties": { "id": { "type": "string" }, "title": { "type": "string" } } }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id","text","laneId"],
+        "properties": {
+          "id": { "type": "string" },
+          "text": { "type": "string", "maxLength": 500 },
+          "laneId": { "type": "string", "description": "must match a lane id" },
+          "color": { "type": "string" },
+          "votes": { "type": "integer", "minimum": 0, "maximum": 99 },
+          "tag": { "type": "string", "enum": ["fact","assumption","speculation","action","question"] },
+          "x": { "type": ["number","null"] },
+          "y": { "type": ["number","null"] }
+        }
+      }
+    },
+    "drawings": {
+      "type": "array",
+      "description": "pen strokes on the board canvas",
+      "items": {
+        "type": "object",
+        "required": ["points"],
+        "properties": {
+          "color": { "type": "string" },
+          "width": { "type": "number" },
+          "points": { "type": "array", "items": { "type": "object", "required": ["x","y"], "properties": { "x": { "type": "number" }, "y": { "type": "number" } } } }
+        }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "schema": { "type": "string", "const": "boards/_schema.json" }
+  },
+  "examples": [
+    { "id": "demo", "title": "Onboarding activation", "template": "brainwriting", "lanes": [{ "id": "lane-1", "title": "P1" }], "notes": [{ "id": "a1", "text": "Invite carries intent → skip tour", "laneId": "lane-1", "color": "#ffeb3b", "votes": 2, "tag": "fact" }] }
+  ]
+}

@@ -67,3 +67,5 @@ Use a shared document or board with one column per participant and numbered rows
 - When not to use + handoff map: [references/when-not-to-use.md](references/when-not-to-use.md)
 - Provenance and evidence limits: [references/provenance.md](references/provenance.md)
 - Sheet and rotation template generator (offline): [scripts/brainwrite.py](scripts/brainwrite.py)
+- Agent workflow — parallel generators + synthesis owner: [workflows/brainwriting-workflow.md](../../workflows/brainwriting-workflow.md)
+- Shared workspace — sticky notes, lanes, drawing, votes: [workspace/index.html](../../../../workspace/index.html)

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Thinking Workspace — sticky notes, lanes, drawing, votes</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <strong>Thinking Workspace</strong>
+    <span class="sub">agents + humans · sticky notes · lanes · drawing · votes</span>
+  </div>
+  <div class="controls">
+    <label>Board <input id="boardId" placeholder="onboarding-q3" size="14"/></label>
+    <label>Title <input id="boardTitle" size="18" placeholder="Onboarding activation"/></label>
+    <select id="template">
+      <option value="blank">blank</option>
+      <option value="six-hats">six hats (White→Blue)</option>
+      <option value="brainwriting">brainwriting (P1·P2·P3)</option>
+      <option value="scamper">SCAMPER (7)</option>
+      <option value="crazy-eights">crazy-8s (8)</option>
+      <option value="backcasting">backcasting timeline</option>
+      <option value="morph-box">morph box</option>
+    </select>
+    <button id="applyTemplate">apply template</button>
+    <span class="sep"></span>
+    <button id="addNote">+ note</button>
+    <button id="toggleDraw">✎ draw</button>
+    <label class="colorPick"><input type="color" id="noteColor" value="#ffeb3b" title="note color"/></label>
+    <span class="sep"></span>
+    <button id="timerBtn">⏱ 5:00</button>
+    <span class="sep"></span>
+    <button id="exportJson">export JSON</button>
+    <button id="exportPng">export PNG</button>
+    <label class="importLabel">import JSON <input type="file" id="importFile" accept=".json" hidden/></label>
+    <button id="clearBoard" class="danger">clear</button>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="hint">
+    <b>Use:</b> drag notes · double-click to edit · <kbd>+</kbd> vote · <kbd>x</kbd> delete · pen draws on canvas · lanes = hats/phases/sheets
+    <span class="agentHint">Agents: read/write <code>workspace/boards/&lt;boardId&gt;.json</code> (schema in <code>boards/_schema.json</code>). Browser persists to <code>localStorage</code> + file.</span>
+  </div>
+  <div class="legend">
+    <span class="dot" style="background:#ffeb3b"></span> fact
+    <span class="dot" style="background:#81d4fa"></span> assumption
+    <span class="dot" style="background:#ef9a9a"></span> speculation
+    <span class="dot" style="background:#c8e6c9"></span> action
+    <span class="dot" style="background:#ffe0b2"></span> question
+  </div>
+</div>
+
+<main id="board" class="board">
+  <canvas id="drawCanvas" class="drawCanvas" width="1600" height="900" aria-label="drawing layer"></canvas>
+  <div id="lanes" class="lanes"></div>
+  <div id="notesLayer" class="notesLayer"></div>
+</main>
+
+<dialog id="noteDialog">
+  <form method="dialog" class="noteForm">
+    <h3 id="dialogTitle">Edit note</h3>
+    <textarea id="noteText" rows="4" placeholder="One idea per note — mechanism, not slogan"></textarea>
+    <div class="row">
+      <label>lane <select id="noteLane"></select></label>
+      <label>color <input type="color" id="noteColor2" value="#ffeb3b"/></label>
+      <label>votes <input type="number" id="noteVotes" min="0" max="9" value="0" style="width:4em"/></label>
+      <label>tag <select id="noteTag">
+        <option value="fact">fact</option>
+        <option value="assumption">assumption</option>
+        <option value="speculation">speculation</option>
+        <option value="action">action</option>
+        <option value="question">question</option>
+      </select></label>
+    </div>
+    <div class="row end">
+      <button type="button" id="deleteNote">delete</button>
+      <button value="cancel">cancel</button>
+      <button value="default" id="saveNote" class="primary">save</button>
+    </div>
+  </form>
+</dialog>
+
+<footer class="foot">
+  <span>Agent I/O: JSON schema <code>boards/_schema.json</code> · <code>workspace/boards/&lt;id&gt;.json</code> — agents may <code>read</code>/<code>write</code> directly; browser imports via file picker. · No build, no deps, vanilla JS.</span>
+  <a href="../README.md">README</a> · <a href="../examples/gallery.md">Gallery</a> · <a href="../plugins/thinking-skills/skills/thinking-router/references/catalog.md">Catalog</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
