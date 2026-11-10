@@ -166,7 +166,7 @@ PROMPTS = {
 # not verdicts about the belief.
 SUBTYPE_CUES = (
     ("source/system", re.compile(
-        r"\b(polic(?:y|ies)|platform|system|tool|vendor|api|architecture|database|schema|"
+        r"\b(polic(?:y|ies)|platform|system|tool|vendor|api|cms|crm|erp|architecture|database|schema|"
         r"integration|contract|regulat\w*|compliance|budget|headcount)\b", re.I)),
     ("boundary", re.compile(
         r"\b(only|within|inside|outside|scope|deadline|quarter|market|region|channel|"
