@@ -10,3 +10,13 @@ wheels/
 .venv
 
 megamouth/
+.skills/
+.agents/
+AGENTS.md
+.claude/skills/
+skills-lock.json
+.hyperframes-launch/
+.hyperframes-review/
+.og-draft/
+hyperframes-launch/
+README.draft.md
