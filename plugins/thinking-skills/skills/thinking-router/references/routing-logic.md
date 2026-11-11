@@ -26,7 +26,7 @@ Mixed signals are normal. Pick the *next* artifact the user needs, not the final
 
 ## 2. Score each method (0-3 per signal, sum wins)
 
-For each of the 37 methods (27 base + 10 extended) in the catalog, add points:
+For each of the 38 methods (27 base + 11 extended) in the catalog, add points:
 
 | Signal | +2 | +1 | +0 |
 |---|---|---|---|
@@ -50,6 +50,7 @@ Suggested time budgets (rough, adapt to user):
 | `liberating-structures`, `nominal-group-technique` | 30-60 |  
 | `lotus-blossom` | 25-40 |
 | `dot-voting-prioritize` | 10-20 |
+| `board-game-abstraction` | 40-60 |
 
 ## 3. Apply guardrails
 

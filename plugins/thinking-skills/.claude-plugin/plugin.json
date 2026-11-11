@@ -1,12 +1,13 @@
 {
   "name": "thinking-skills",
-  "version": "0.5.0",
-  "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (39 skills: 27 base + 10 extended + router + divergent-thinking) plus a 37-method thinking-router, gallery, workflows, and shared workspace.",
+  "version": "0.6.0",
+  "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 extended + router + divergent-thinking) plus a 38-method thinking-router, gallery, workflows, and shared workspace.",
   "author": {
     "name": "alek"
   },
   "keywords": [
     "analogical-thinking",
+    "board-game-abstraction",
     "bodystorming",
     "brainstorming",
     "c-k-theory",

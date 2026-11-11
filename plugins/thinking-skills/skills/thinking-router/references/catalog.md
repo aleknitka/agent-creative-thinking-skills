@@ -1,6 +1,6 @@
-# Catalog — 37 Creative-Thinking Methods (27 + 10 extended)
+# Catalog — 38 Creative-Thinking Methods (27 + 11 extended)
 
-Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 10 from `research/extended-methods/synthesis.md` (SIT, C-K Theory, Bodystorming, Rich Picture+CATWOE, Causal Loop Diagram, Synectics, Liberating Structures, NGT/Delphi, Lotus Blossom, Dot Voting + Impact–Effort). ★ = Suggested first 8 of the base catalog; ◆ = extended.
+Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 11 from `research/extended-methods/synthesis.md` (SIT, C-K Theory, Bodystorming, Rich Picture+CATWOE, Causal Loop Diagram, Synectics, Liberating Structures, NGT/Delphi, Lotus Blossom, Dot Voting + Impact–Effort, Board-Game Abstraction). ★ = Suggested first 8 of the base catalog; ◆ = extended.
 
 ## 1. Reframe the problem
 
@@ -46,6 +46,7 @@ Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 
 | — | `causal-loop-diagram` | Causal Loop Diagram | ◆ | Fix keeps making its problem worse; need leverage | R/B loops, delays, leverage-point map |
 | — | `rich-picture-catwoe` | Rich Picture + CATWOE | ◆ | Messy situation, no shared picture | Rich picture + CATWOE → root definition |
 | — | `liberating-structures` | Liberating Structures (6) | ◆ | Hierarchy dominates, need equal-voice micro-structure | 1-2-4-All / TRIZ / 15% / Ecocycle harvest |
+| — | `board-game-abstraction` | Board-Game Abstraction | ◆ | Too political/complex to discuss directly; need playable model | Players + scarce resources + board/loop → 1-page rules → 3 playtests |
 | — | `synectics` | Synectics + Excursion | ◆ | *(listed above; bridges Generate and Explore)* | Four analogies + springboards |
 
 *Synectics is listed in Generate (its excursion) but routes also to Broader Perspectives when the excursion opens a new worldview; the router scores both.*
@@ -69,7 +70,7 @@ Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 
 - Methods overlap intentionally. Router prefers one primary + one alternate rather than forcing a single answer.
 - If no installed skill matches the top pick, run the closest analogue and note the gap (e.g., `lateral-thinking` ≈ `divergent-thinking` + lenses).
 - Agent/workflow candidates: `brainwriting` (parallel generation), `dreamer-realist-critic` (3-phase sequential), `six-thinking-hats` (6-mode + Blue synthesis), `scenario-planning`/`futures-wheel`/`morphological-analysis` (parallel then converge), `double-diamond` (orchestrator of other methods).
-- **Extended skills** reuse the same progressively-disclosed shape: `SKILL.md` (hub) + 5–7 leaf `references/*.md` + offline `scripts/*.py`; `thinking-router` scoring covers 37 (27 base + 10 extended) where installed.
+- **Extended skills** reuse the same progressively-disclosed shape: `SKILL.md` (hub) + 5–7 leaf `references/*.md` + offline `scripts/*.py`; `thinking-router` scoring covers 38 (27 base + 11 extended) where installed.
 - **Light touch-ups (no new skills):** `Dot Voting` and `15% Solutions` are documented in `options-portfolio` portfolio prioritization; `1-2-4-All` is noted in `brainwriting` facilitation; `Ecocycle Planning` is noted as a phase lens in `options-portfolio`. These are patterns, not separate skills.
 
 ## Extended-method references

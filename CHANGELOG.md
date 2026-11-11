@@ -2,6 +2,32 @@
 
 All notable changes to `agent-thinking-skills` follow Keep a Changelog and align with the `plugin.json` / `marketplace.json` versions.
 
+## [0.6.0] — 2026-11-11
+
+### Added — Board-Game Abstraction (our own method)
+
+**`board-game-abstraction`** — turn a real-world problem into a 15-minute playable board-game abstraction (players, scarce resources, board, feedback loop, win/loss) to surface hidden rules without jargon or politics — a method created for this repository that fills a genuine gap (no 27+10 method does ludic abstraction).
+
+- **Gap:** 27+10 cover reframe/generate/perspectives/convergence and facilitation; none distills a system to a *losable rule-set*. Beer Game (MIT supply chain) and Serious Games show playable abstraction disarms politics and forces the four avoided choices: who plays, what is scarce, what wins, what breaks the loop.
+- **Artifact:** 1-page ruleset (turn order, 2–3 actions, costs, failure, win/loss stating what each rule abstracts) + board sketch + 3 mental playtests (honest/greedy/co-op) + transfer probes labelled fact/assumption/speculation.
+- **Process (6 steps, 40–60 min):** 1-intake (bound real game) → 2-cast & board (2–4 players, 2–3 scarce resources, 1 board: queue/track/map/market, 1 loop) → 3-pick mechanic (Worker Placement / Resource Mgmt / Push-Your-Luck / Co-op w/ Hidden Info / Deck-Building / Track Race / Trading-Auction / Event Deck) → 4-1-page rules (≤8 rules, ≤3 actions, must be losable) → 5-mental playtest ×3 → 6-debrief & transfer to `premortem`/`causal-loop-diagram`.
+- **Files:** `skills/board-game-abstraction/SKILL.md` (62 lines) + 6 leaf `references/*.md` (`mechanics.md` pressure→mechanic table, `abstraction.md` players/resources/board/loop/win-loss, `facilitation.md` timing/solo-AI/15-min playtest, `examples.md` onboarding→"Intent Race" with 3 plays, `when-not-to-use.md`, `provenance.md`) + `scripts/gameify.py` (`--problem`, `--mechanic`, `--seed`, `--list`, `--json`, 138 lines, offline).
+- **Overlap disciplined:** `bodystorming` = bodies in space, `causal-loop-diagram` = structure, `rich-picture-catwoe` = worldviews, `board-game-abstraction` = playable rules on a table; `liberating-structures` facilitates groups, this abstracts a single system.
+
+### Changed
+
+- `thinking-router` — 37 → 38 methods (BGA in `broader-perspectives` after `liberating-structures`): `scripts/route.py` 38 grouped entries (`better 6 / more 14 / broader 11 / stronger 7`), budget for BGA 35, NEED_KEYWORDS board/game/abstraction; `references/catalog.md` 37→38 (27+11), `SKILL.md`/`references/routing-logic.md`/`references/provenance.md` updated; `--list` groups correctly, `--text` routing verified for board-game triggers.
+- `examples/gallery.md` — new **Board-Game Abstraction** subsection in §5 Extended & convergence with prompt + artifact + helper (`gameify.py --problem ... --seed 7`); chain 37→38.
+- `workspace/` — new `board-game` template (`board-game`: Players/Resources/Board/Loop/Rules/Playtest ×3/Transfer) in `workspace/app.js` + `workspace/boards/_schema.json` enum 17→18 + `workspace/index.html` `<select>` 17→18.
+- `README.md` — 39 → 40 skills (27 base + 11 extended + router + divergent-thinking), router 37→38, Extended table +1 row (BGA), source 10→11, version `0.5.0`→`0.6.0`.
+- `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` — version `0.5.0`→`0.6.0`; descriptions 39→40 / 37→38; keywords + `board-game-abstraction`.
+
+### Notes
+
+- Counts: 40 skills on disk (27 + 11 + router + divergent), catalog distinct slugs 40, `route.py` 38 methods; BGA is our own synthesis.
+- Packaging: `scripts/validate.py → OK` (40 skills), `route.py --list` groups correctly, hub-and-spoke preserved.
+
+
 ## [0.5.0] — 2026-11-11
 
 ### Added — 4 more extended skills (backlog 7–10) + workspace/gallery for all 10 extended

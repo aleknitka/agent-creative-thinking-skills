@@ -2,7 +2,7 @@
 """
 route.py — deterministic helper for thinking-router.
 
-Scores the 37 creative-thinking methods against intake signals and proposes
+Scores the 38 creative-thinking methods against intake signals and proposes
 a ranked shortlist. Runs offline, no dependencies.
 
 Usage:
@@ -21,7 +21,7 @@ import re
 import textwrap
 from dataclasses import dataclass
 
-# Must match references/catalog.md (37 entries: 27 base + 10 extended).
+# Must match references/catalog.md (38 entries: 27 base + 11 extended).
 @dataclass(frozen=True)
 class Method:
     slug: str
@@ -65,6 +65,7 @@ METHODS: list[Method] = [
     Method("rich-picture-catwoe", "Rich Picture + CATWOE", "broader-perspectives", False, "rich picture catwoe customers actors transformation worldview owners environment checkland soft systems messy situation root definition", "broader-perspectives"),
     Method("causal-loop-diagram", "Causal Loop Diagram", "broader-perspectives", False, "causal loop reinforcing balancing feedback delay archetype leverage polarity fix keeps making problem worse structure behavior over time system dynamics fixes that fail shifting burden limits success", "broader-perspectives"),
     Method("liberating-structures", "Liberating Structures", "broader-perspectives", False, "liberating structures 1-2-4-all impromptu networking 15% solutions TRIZ wicked questions ecocycle facilitation micro-structure hierarchy", "broader-perspectives"),
+    Method("board-game-abstraction", "Board-Game Abstraction", "broader-perspectives", False, "board game abstraction playable mechanics players board resources loop win loss gamify abstract system politics", "broader-perspectives"),
     # Decide — stronger options (5 base + 2 extended: NGT, dot-voting)
     Method("double-diamond", "Double Diamond", "stronger-options", False, "discover define develop deliver divergence convergence structure diamond", "stronger-options"),
     Method("triz-contradictions", "TRIZ Contradiction Thinking", "stronger-options", False, "contradiction tradeoff trade tradeoffs recurring fixing breaks worsens improving one property worsens another inventive principles separation compromise technical triz", "stronger-options"),
@@ -78,7 +79,7 @@ METHODS: list[Method] = [
 NEED_KEYWORDS: dict[str, set[str]] = {
     "better-question": {"vague", "overconstrained", "assumption", "right", "question", "stuck", "reframe", "narrow", "abstract", "why", "brief", "define", "framing"},
     "more-ideas": {"baseline", "concept", "improve", "varied", "alternatives", "scamper", "dimensions", "similar", "anchoring", "modify", "variations", "closed", "subtraction", "synectics", "excursion", "bodystorming", "enactment", "expansion", "partition", "lotus", "blossom", "radial", "blooms", "petals"},
-    "broader-perspectives": {"stakeholder", "future", "futures", "scenario", "scenarios", "consequences", "ripple", "what", "uncertain", "uncertainties", "perspectives", "broad", "effects", "hurt", "overlooked", "signals", "criticism", "critique", "interrupt", "interrupting", "vision", "bold", "route", "backcasting", "wheel", "feedback", "loop", "loops", "reinforcing", "balancing", "archetype", "leverage", "rich", "picture", "catwoe", "worldview", "messy", "liberating", "structures", "facilitation", "ecocycle", "wicked"},
+    "broader-perspectives": {"stakeholder", "future", "futures", "scenario", "scenarios", "consequences", "ripple", "what", "uncertain", "uncertainties", "perspectives", "broad", "effects", "hurt", "overlooked", "signals", "criticism", "critique", "interrupt", "interrupting", "vision", "bold", "route", "backcasting", "wheel", "feedback", "loop", "loops", "reinforcing", "balancing", "archetype", "leverage", "rich", "picture", "catwoe", "worldview", "messy", "liberating", "structures", "facilitation", "ecocycle", "wicked", "board", "game", "abstraction", "mechanics", "players", "playable", "gamify"},
     "stronger-options": {"tradeoff", "tradeoffs", "trade", "contradiction", "recurring", "fixing", "breaks", "portfolio", "premortem", "failed", "failure", "candidate", "choose", "commit", "worsens", "robust", "strengthen", "fail", "rank", "ranking", "vote", "voting", "dots", "consensus", "NGT", "Delphi", "prioritize", "prioritization", "keep", "kill", "impact", "effort", "ICE"},
 }
 

@@ -220,11 +220,19 @@ python plugins/thinking-skills/skills/scamper/scripts/scamper.py --subject "onbo
 **Skill:** `dot-voting-prioritize` → N/3 dots (simultaneous) → impact–effort plot → ICE where data exists → keep/pivot/kill + owners.  
 **Helper:** `python plugins/thinking-skills/skills/dot-voting-prioritize/scripts/vote.py --count 18 --voters 6 --impact-effort --json`
 
+### Board-Game Abstraction — too political to discuss directly
+
+**Prompt:**
+> Capacity, invites, and attention tangle in politics. Make it playable — what are the players, what's scarce, what loop punishes us?
+
+**Skill:** `board-game-abstraction` → players + scarce resources (2–3) + board (queue/track/map/market) + one loop → pick mechanic (worker placement / push-your-luck / co-op etc.) → 1-page rules → 3 mental playtests (honest/greedy/co-op) → transfer probe.  
+**Helper:** `python plugins/thinking-skills/skills/board-game-abstraction/scripts/gameify.py --problem "onboarding drops 32% before first value" --seed 7`
+
 ---
 
 ## End-to-end chain (copy-paste ready)
 
-> You are the `thinking-router`. Triage whether we need a better question, more ideas, broader perspectives, or stronger options for: "Onboarding drops 32% before first value; invites carry no intent, activation is uninstrumented." Score 37 methods, shortlist 2–3, then hand off to the primary with user confirmation. If we pick lateral-thinking, carry the intake forward; end with a probe.
+> You are the `thinking-router`. Triage whether we need a better question, more ideas, broader perspectives, or stronger options for: "Onboarding drops 32% before first value; invites carry no intent, activation is uninstrumented." Score 38 methods, shortlist 2–3, then hand off to the primary with user confirmation. If we pick lateral-thinking, carry the intake forward; end with a probe.
 >
 > After the router hands off, continue as that skill and produce its artifact (Po set, box, scenarios, etc.) — one hat/operator at a time, no rewordings.
 

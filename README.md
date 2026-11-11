@@ -1,6 +1,6 @@
 # agent-thinking-skills
 
-Skills that help agents reason better, think more creatively, and explore ideas more broadly. Distributed as a Claude Code plugin marketplace. Targets **Codex and Claude Code**. 39 skills, a router (37 methods), an example gallery, two agent workflows, and a shared workspace.
+Skills that help agents reason better, think more creatively, and explore ideas more broadly. Distributed as a Claude Code plugin marketplace. Targets **Codex and Claude Code**. 40 skills, a router (38 methods), an example gallery, two agent workflows, and a shared workspace.
 
 ## Install
 
@@ -13,7 +13,7 @@ For local development, use the repo path instead: `/plugin marketplace add ./`
 
 ## Skills
 
-39 skills (27 base + 10 extended) across four categories plus a router and a divergent-thinking baseline — catalog is 37 methods (27+10). Every skill follows progressive disclosure: YAML front matter (always loaded) → `SKILL.md` body (lean process) → `references/*.md` on demand → `scripts/*.py` offline helpers.
+40 skills (27 base + 11 extended) across four categories plus a router and a divergent-thinking baseline — catalog is 38 methods (27+11). Every skill follows progressive disclosure: YAML front matter (always loaded) → `SKILL.md` body (lean process) → `references/*.md` on demand → `scripts/*.py` offline helpers.
 
 ### Reframe the problem
 
@@ -75,6 +75,7 @@ For local development, use the repo path instead: `/plugin marketplace add ./`
 | `nominal-group-technique` | NGT silent write → round-robin → vote + Delphi anonymized rounds → ranked shortlist with dissent log | Need credible ranking resistant to hierarchy |
 | `lotus-blossom` | MY Lotus Blossom 8×8 — centre → 8 petals → 72 blooms with lineage | 8 not enough; need layered breadth |
 | `dot-voting-prioritize` | Structured dot voting (N/3) + Impact–Effort + ICE → keep/pivot/kill | Many ideas need visible priority |
+| `board-game-abstraction` | Turn problem into playable mechanics — players, scarce resources, board, loop, win/loss → 1-page rules + 3 playtests | Too political/complex to discuss directly |
 
 Source: `megamouth/research/extended-methods/synthesis.md` (10 from 41 candidates + 7 arXiv/8 OpenAlex; ranks 7–10 in Extended).
 
@@ -82,11 +83,11 @@ Source: `megamouth/research/extended-methods/synthesis.md` (10 from 41 candidate
 
 | Skill | What it does | Use when |
 |---|---|---|
-| `thinking-router` | Triage into *better question / more ideas / broader perspectives / stronger options*, scores 37 methods (27 base + 10 extended), hands off with user confirmation | Unsure which method fits; "help me think creatively" |
+| `thinking-router` | Triage into *better question / more ideas / broader perspectives / stronger options*, scores 38 methods (27 base + 11 extended), hands off with user confirmation | Unsure which method fits; "help me think creatively" |
 | `divergent-thinking` | 10+ options → lenses → cluster → converge | Need many varied options before choosing one |
 
 Full method list and triggers: `plugins/thinking-skills/skills/thinking-router/references/catalog.md`.
-Source catalog: `megamouth/docs/creative-thinking-methodologies.md` (27) + `megamouth/research/extended-methods/synthesis.md` (10 extended) — router catalog is 37.
+Source catalog: `megamouth/docs/creative-thinking-methodologies.md` (27) + `megamouth/research/extended-methods/synthesis.md` (11 extended) — router catalog is 38.
 Examples run offline where noted via `scripts/*.py` (seeded, deterministic, no network).
 
 ## Example Gallery
@@ -133,4 +134,4 @@ open workspace/index.html              # or: python -m http.server 8000
 
 See [CLAUDE.md](CLAUDE.md) for layout and the progressive-disclosure rules. Start new skills from `templates/skill/` and run `python3 scripts/validate.py`.
 
-Versioning: bump `version` in both `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` for releases. Current: `0.5.0` (39 skills: 27 base + 10 extended + router + divergent-thinking; 37-method router; gallery + workflows + workspace).
+Versioning: bump `version` in both `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` for releases. Current: `0.6.0` (40 skills: 27 base + 11 extended + router + divergent-thinking; 38-method router; gallery + workflows + workspace).

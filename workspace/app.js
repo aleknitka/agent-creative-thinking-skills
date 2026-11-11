@@ -33,6 +33,7 @@ const TEMPLATES = {
   "nominal-group": { title: "NGT / Delphi", lanes: ["Silent ideas","Round-robin","Clarify","Vote 5-4-3-2-1","Dissent log"]},
   "lotus-blossom": { title: "Lotus Blossom", lanes: ["Centre","P1","P2","P3","P4","P5","P6","P7","P8"]},
   "dot-voting": { title: "Dot Voting + Impact–Effort", lanes: ["Dots N/3","Quick wins","Strategic","Fill-ins","Avoid","Keep/Pivot/Kill"]},
+  "board-game": { title: "Board-Game Abstraction", lanes: ["Players","Resources","Board","Loop","Rules","Playtest ×3","Transfer"]},
 };
 
 const COLORS = { fact: "#ffeb3b", assumption: "#81d4fa", speculation: "#ef9a9a", action: "#c8e6c9", question: "#ffe0b2" };

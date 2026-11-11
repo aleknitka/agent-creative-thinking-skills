@@ -171,7 +171,6 @@ def delphi_rounds(
 
 
 def tally_ranked(ideas: list[Idea], ballots: list[dict], top: int) -> dict:
-    by_id = {idea.id: idea for idea in ideas}
     points = {idea.id: 0 for idea in ideas}
     firsts = {idea.id: 0 for idea in ideas}
     lasts = {idea.id: 0 for idea in ideas}
@@ -298,7 +297,6 @@ def tally_delphi(
     top: int,
     consensus_target: float,
 ) -> dict:
-    by_id = {idea.id: idea for idea in ideas}
     final = history[-1]["summary"]
     first = history[0]["summary"]
     order = sorted(
@@ -475,11 +473,8 @@ def render_dissent(result: dict) -> list[str]:
 
 def load_ideas(path: str, count: int | None) -> list[Idea]:
     if path:
-        lines = [
-            line.strip()
-            for line in open(path, encoding="utf-8").read().splitlines()
-            if line.strip()
-        ]
+        with open(path, encoding="utf-8") as handle:
+            lines = [line.strip() for line in handle.read().splitlines() if line.strip()]
     else:
         total = count or 12
         lines = [
@@ -526,7 +521,11 @@ def main() -> int:
     )
     parser.add_argument("--json", action="store_true", help="machine-readable output")
     parser.add_argument(
-        "--list-methods", action="store_true", help="describe methods and exit"
+        "--list",
+        "--list-methods",
+        dest="list_methods",
+        action="store_true",
+        help="describe methods and exit",
     )
     args = parser.parse_args()
 

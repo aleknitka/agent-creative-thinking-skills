@@ -1,11 +1,11 @@
 ---
 name: thinking-router
-description: Choose the most fitting creative-thinking method for your problem. Use when unsure which technique to use, when a problem could be framed many ways, or when you say "help me think creatively / pick a method / what should we try next" — it diagnoses intent and routes to 1-2 methods from 37 (27 base + 10 extended), then hands off.
+description: Choose the most fitting creative-thinking method for your problem. Use when unsure which technique to use, when a problem could be framed many ways, or when you say "help me think creatively / pick a method / what should we try next" — it diagnoses intent and routes to 1-2 methods from 38 (27 base + 11 extended), then hands off.
 ---
 
 # Thinking Router
 
-You have 37 methods but one next step. This skill prevents method-shopping and premature commitment — it diagnoses what you actually need, then routes with you to the best-fitting 1-2 methods.
+You have 38 methods but one next step. This skill prevents method-shopping and premature commitment — it diagnoses what you actually need, then routes with you to the best-fitting 1-2 methods.
 
 ## Process
 
@@ -18,7 +18,7 @@ You have 37 methods but one next step. This skill prevents method-shopping and p
    - **Stronger options** — you have candidates and need to stress-test and choose
    Details: [references/routing-logic.md](references/routing-logic.md).
 
-3. **Score and shortlist.** Using the signals from step 2, score the 37 methods in [references/catalog.md](references/catalog.md) and keep the top 2-3. Prefer methods whose trigger matches best and whose output matches the artifact you need next. Break ties toward the Suggested first 8.
+3. **Score and shortlist.** Using the signals from step 2, score the 38 methods in [references/catalog.md](references/catalog.md) and keep the top 2-3. Prefer methods whose trigger matches best and whose output matches the artifact you need next. Break ties toward the Suggested first 8.
 
 4. **Recommend with tradeoffs.** Present:
    - **Primary** — what it does in one line, why it fits, what you will get, time/effort
@@ -38,7 +38,7 @@ You have 37 methods but one next step. This skill prevents method-shopping and p
 
 ## Going deeper
 
-- Full method catalog (37: 27 base + 10 extended, with triggers and outputs): [references/catalog.md](references/catalog.md)
+- Full method catalog (38: 27 base + 11 extended, with triggers and outputs): [references/catalog.md](references/catalog.md)
 - Diagnostic questions and intake template: [references/diagnostic.md](references/diagnostic.md)
 - Routing logic, decision tree, and scoring: [references/routing-logic.md](references/routing-logic.md)
 - Worked routing examples: [references/example.md](references/example.md)

@@ -30,21 +30,23 @@ If unsure this is the right method, start with [thinking-router](../thinking-rou
 
 2. **Silent generation.** NGT 10 min silent write — one idea per line, no talking. Delphi round 1 — anonymous proposals collected centrally. No evaluation yet. See [references/procedure.md](references/procedure.md).
 
-3. **Round-robin share.** NGT: each person reads one idea in turn until exhausted; scribe records verbatim. No discussion — only clarification questions. Delphi: facilitator circulates aggregated, de-identified list. See [references/procedure.md](references/procedure.md).
+3. **Round-robin share.** NGT: each person reads one idea in turn until exhausted; scribe records verbatim. No discussion during the circle. Delphi: facilitator circulates the aggregated, de-identified list. See [references/procedure.md](references/procedure.md).
 
 4. **Clarify and cluster.** Group duplicates, clarify wording, merge only with author consent. Do not judge or rank while clustering. See [references/procedure.md](references/procedure.md).
 
-5. **Vote and rank.** Each voter distributes votes: NGT canonical = 5-4-3-2-1 across top 5, or N/3 dots; Delphi = median/IQR feedback between rounds. Tally visibly. See [references/voting.md](references/voting.md) and [scripts/ngt.py](scripts/ngt.py).
+5. **Vote and rank.** Each voter distributes votes: the common NGT ballot is 5-4-3-2-1 across a top 5, or N/3 dots; Delphi uses median/IQR feedback between rounds. Tally visibly. See [references/voting.md](references/voting.md) and [scripts/ngt.py](scripts/ngt.py).
 
 6. **Log dissent and handoff.** Record top-ranked items, vote spread, and explicit dissent (who disagrees and why). Hand off to `options-portfolio` (package into bets) or `premortem` (stress-test the winner). See [references/examples.md](references/examples.md).
 
 ## Rules
 
 - Write before you speak — every idea is written before any discussion.
-- One idea per turn in round-robin; no piggy-backing, no evaluation language until voting.
+- Generation is evaluation-free — no praise, criticism, or "we tried that" until every idea is recorded and clarified.
+- One idea per turn in round-robin; no piggy-backing.
 - Clarification only — "what do you mean?" is allowed; "that won't work" is not until after voting.
 - Agree the aggregation rule, shortlist size, and consensus threshold before round 1; never move them after seeing the tally.
 - Delphi anonymity is real — no attribution across rounds.
+- Dissent is part of the record — name the strongest objection and its basis, not just the objector.
 - Votes are traceable but not weaponizable — tallies shown, dissent named, coercion forbidden.
 - Label fact / assumption / speculation; ranking is preference, not evidence.
 - Honest provenance: attribute NGT to Delbecq & Van de Ven (1971), Delphi to Dalkey & Helmer (RAND); call this workflow an adaptation. See [references/provenance.md](references/provenance.md).
