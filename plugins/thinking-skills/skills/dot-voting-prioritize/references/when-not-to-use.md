@@ -3,7 +3,7 @@
 ## Use a different method
 
 - **Ranking by expert judgment with anonymity and controlled feedback** →
-  `ngt-delphi`. Dot voting is visible and social; it cannot remove conformity
+  `nominal-group-technique`. Dot voting is visible and social; it cannot remove conformity
   pressure among experts.
 - **Keeping a mix of safe, ambitious, and exploratory bets** →
   `options-portfolio`. A dot vote tends to collapse to one or two winners;
@@ -27,7 +27,7 @@
 1. Is the set clustered, comparable, and visible? If not, fix that first.
 2. Is the decision reversible and within existing authority? If not, use a
    governance path.
-3. Would anonymity change the answer? If yes, use `ngt-delphi`.
+3. Would anonymity change the answer? If yes, use `nominal-group-technique`.
 4. Does the decision need a *mix* rather than a ranking? If yes, use
    `options-portfolio`.
 5. Is there evidence to score Confidence? If not, keep ICE optional and say
@@ -38,7 +38,7 @@
 | Situation | Next method |
 |---|---|
 | Too many raw ideas | cluster, then return here |
-| Need anonymous expert ranking | `ngt-delphi` |
+| Need anonymous expert ranking | `nominal-group-technique` |
 | Need a balanced set of bets | `options-portfolio` |
 | One proposal needs stress-testing | `premortem` |
 | Top item needs a causal test | experiment design / probe |

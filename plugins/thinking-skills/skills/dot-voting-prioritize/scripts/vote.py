@@ -127,24 +127,6 @@ def validate(ideas: list[dict], need_effort: bool, need_ice: bool) -> None:
         print("note: no ICE values found; using seeded illustrative values", file=sys.stderr)
 
 
-def fill_scores(ideas: list[dict], rng: random.Random) -> None:
-    """Fill missing matrix/ICE inputs with seeded values, flagged synthetic."""
-    for item in ideas:
-        item.setdefault("_synthetic", [])
-        if "impact" not in item:
-            item["impact"] = rng.randint(1, 5)
-            item["_synthetic"].append("impact")
-        if "effort" not in item:
-            item["effort"] = rng.randint(1, 5)
-            item["_synthetic"].append("effort")
-        if "ease" not in item:
-            item["ease"] = rng.randint(1, 10)
-            item["_synthetic"].append("ease")
-        if "confidence" not in item:
-            item["confidence"] = rng.randint(1, 10)
-            item["_synthetic"].append("confidence")
-
-
 def simulate_votes(ideas: list[dict], voters: int, dots: int, rng: random.Random) -> tuple[dict, int]:
     totals = {i: 0 for i in range(len(ideas))}
     spent = 0
@@ -290,7 +272,7 @@ def main() -> int:
             "ideas": len(ideas),
             "voters": args.voters,
             "dots_per_voter": dots,
-            "dots_rule": "max(3, ceil(N/3)) capped at 12",
+            "dots_rule": "max(3, ceil(N/3)) capped at 12" if args.dots == "auto" else "explicit",
             "total_dots": args.voters * dots,
             "dots_allocated": spent,
             "votes_simulated": simulated,
@@ -316,8 +298,9 @@ def main() -> int:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
         return 0
 
+    rule = "N/3 rule" if args.dots == "auto" else "explicit"
     print(f"Ideas: {len(ideas)}   Voters: {args.voters}   "
-          f"Dots/voter: {dots} (N/3 rule)   Total: {args.voters * dots}")
+          f"Dots/voter: {dots} ({rule})   Total: {args.voters * dots}")
     if simulated:
         print(f"Votes: simulated (seed {args.seed}) — planning only")
     print()
