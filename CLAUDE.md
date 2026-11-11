@@ -1,4 +1,4 @@
-# agent-thinking-skills
+# agent-creative-thinking-skills
 
 A Claude Code plugin marketplace of skills for creative thinking and better agent reasoning.
 
@@ -19,7 +19,7 @@ A Claude Code plugin marketplace of skills for creative thinking and better agen
 
 ## Adding a skill
 
-1. `cp -r templates/skill plugins/thinking-skills/skills/<name>`
+1. `cp -r templates/skill plugins/creative-thinking-skills/skills/<name>`
 2. Edit SKILL.md; `name` must equal the directory name.
 3. `python3 scripts/validate.py`
 4. Bump `version` in both `plugin.json` and `marketplace.json` for releases.

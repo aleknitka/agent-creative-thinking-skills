@@ -1,16 +1,16 @@
 {
-  "name": "agent-thinking-skills",
+  "name": "agent-creative-thinking-skills",
   "owner": {
     "name": "alek"
   },
   "metadata": {
-    "description": "Skills that help agents reason better, think more creatively, and explore ideas more broadly. 40 skills (27 base + 11 extended + router + divergent-thinking) \u2014 with a 38-method thinking-router."
+    "description": "Creative-thinking micro-skills for AI harnesses \u2014 reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 research-backed extensions + router + divergent-thinking) plus a 38-method router, gallery, workflows, and shared workspace."
   },
   "plugins": [
     {
-      "name": "thinking-skills",
-      "source": "./plugins/thinking-skills",
-      "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 extended + router + divergent-thinking) plus a 38-method thinking-router, gallery, workflows, and shared workspace.",
+      "name": "creative-thinking-skills",
+      "source": "./plugins/creative-thinking-skills",
+      "description": "Creative-thinking skills for agents: reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 research-backed extensions + router + divergent-thinking) plus a 38-method router, gallery, workflows, and shared workspace.",
       "version": "0.8.0",
       "category": "reasoning",
       "keywords": [

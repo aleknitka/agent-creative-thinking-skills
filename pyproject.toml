@@ -1,13 +1,13 @@
 [project]
-name = "agent-thinking-skills"
+name = "agent-creative-thinking-skills"
 version = "0.8.0"
-description = "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 research-backed extensions + router + divergent-thinking) plus a 38-method router, gallery, workflows, and shared workspace"
+description = "Creative-thinking micro-skills for AI harnesses — reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 research-backed extensions + router + divergent-thinking) plus a 38-method router, gallery, workflows, and shared workspace"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
 
 [project.scripts]
-agent-thinking-skills = "agent_thinking_skills:main"
+agent-creative-thinking-skills = "agent_creative_thinking_skills:main"
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
