@@ -67,6 +67,10 @@ Then stop talking. The facilitator writes during the passes too, at a separate s
 - Do not ask the model to rate ideas before clustering; that reintroduces an evaluator into the generation pass.
 - A single agent running brainwriting alone is simulating parallel perspectives, not producing independent human ones. Say so in the output.
 
+## With liberating structure
+
+Where 1-2-4-All is practised, use it as the read-out before clustering: one minute silent read (1), two minutes in pairs to compare (2), four minutes in fours to find shared themes (4). Keep discussion off until clustering.
+
 ## Timing discipline
 
 - **Call time out loud**; keep a visible timer.
