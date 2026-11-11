@@ -1,6 +1,6 @@
-# Catalog — 32 Creative-Thinking Methods (27 + 5 extended)
+# Catalog — 33 Creative-Thinking Methods (27 + 6 extended)
 
-Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 5 from `research/extended-methods/synthesis.md` (SIT, C-K, Bodystorming, Rich Picture+CATWOE, Causal Loops, Synectics — this catalog shows 5; the full extended list is in the synthesis). ★ = Suggested first 8 of the base catalog; ◆ = extended.
+Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 6 from `research/extended-methods/synthesis.md` (SIT, C-K Theory, Bodystorming, Rich Picture+CATWOE, Causal Loop Diagram, Synectics). ★ = Suggested first 8 of the base catalog; ◆ = extended.
 
 ## 1. Reframe the problem
 
@@ -65,7 +65,7 @@ Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 
 - Methods overlap intentionally. Router prefers one primary + one alternate rather than forcing a single answer.
 - If no installed skill matches the top pick, run the closest analogue and note the gap (e.g., `lateral-thinking` ≈ `divergent-thinking` + lenses).
 - Agent/workflow candidates: `brainwriting` (parallel generation), `dreamer-realist-critic` (3-phase sequential), `six-thinking-hats` (6-mode + Blue synthesis), `scenario-planning`/`futures-wheel`/`morphological-analysis` (parallel then converge), `double-diamond` (orchestrator of other methods).
-- **Extended skills** reuse the same progressively-disclosed shape: `SKILL.md` (hub) + 5–7 leaf `references/*.md` + offline `scripts/*.py`; `thinking-router` scoring covers the base 27 + the 5 extended where installed.
+- **Extended skills** reuse the same progressively-disclosed shape: `SKILL.md` (hub) + 5–7 leaf `references/*.md` + offline `scripts/*.py`; `thinking-router` scoring covers 33 (27 base + 6 extended) where installed.
 - **Light touch-ups (no new skills):** `Dot Voting` and `15% Solutions` are documented in `options-portfolio` portfolio prioritization; `1-2-4-All` is noted in `brainwriting` facilitation; `Ecocycle Planning` is noted as a phase lens in `options-portfolio`. These are patterns, not separate skills.
 
 ## Extended-method references

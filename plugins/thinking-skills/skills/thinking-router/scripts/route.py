@@ -2,7 +2,7 @@
 """
 route.py — deterministic helper for thinking-router.
 
-Scores the 27 creative-thinking methods against intake signals and proposes
+Scores the 33 creative-thinking methods against intake signals and proposes
 a ranked shortlist. Runs offline, no dependencies.
 
 Usage:
@@ -21,7 +21,7 @@ import re
 import textwrap
 from dataclasses import dataclass
 
-# Must match references/catalog.md (27 entries).
+# Must match references/catalog.md (33 entries: 27 base + 6 extended).
 @dataclass(frozen=True)
 class Method:
     slug: str
@@ -32,14 +32,14 @@ class Method:
     output: str  # better-question | more-ideas | broader-perspectives | stronger-options
 
 METHODS: list[Method] = [
-    # Reframe — better question
+    # Reframe — better question (6)
     Method("lateral-thinking", "Lateral Thinking", "better-question", True, "stuck samey dominant idea indirect provocations lateral outside box", "better-question"),
     Method("first-principles", "First-Principles Thinking", "better-question", False, "how it is done convention inherited assumption fundamental constraints", "better-question"),
     Method("challenge-assumptions", "Assumption Challenging", "better-question", True, "overconstrained hidden beliefs assumption inventory false unnecessary reversed", "better-question"),
     Method("question-storming", "Question Storming", "better-question", False, "vague brief questions before answers who defines revised problem statement right question", "better-question"),
     Method("abstraction-laddering", "Abstraction Laddering", "better-question", False, "too narrow too abstract why does it matter how could this happen ladder up down", "better-question"),
     Method("inversion", "Inversion", "better-question", False, "guarantee failure opposite unwanted outcome obstacles", "better-question"),
-    # Generate — more ideas
+    # Generate — more ideas (9 + 4 extended)
     Method("scamper", "SCAMPER", "more-ideas", True, "improve existing product workflow substitute combine adapt modify eliminate reverse rearrange", "more-ideas"),
     Method("reverse-brainstorming", "Reverse Brainstorming", "more-ideas", False, "brainstorming stalled make worse", "more-ideas"),
     Method("forced-connections", "Forced Connections", "more-ideas", False, "too similar surprising random stimulus forced connections unrelated word", "more-ideas"),
@@ -49,7 +49,11 @@ METHODS: list[Method] = [
     Method("crazy-eights", "Crazy 8s", "more-ideas", False, "quick burst eight rapid alternatives", "more-ideas"),
     Method("constraint-driven-ideation", "Constraint-Driven Ideation", "more-ideas", False, "open brief generic constraints no interface no budget offline", "more-ideas"),
     Method("ideal-final-result", "Ideal Final Result", "more-ideas", False, "incremental insufficient ideal benefit minimal complexity cost harm TRIZ", "more-ideas"),
-    # Perspectives — broader perspectives
+    Method("systematic-inventive-thinking", "Systematic Inventive Thinking", "more-ideas", False, "closed world inside the box subtraction multiplication division task unification attribute dependency existing components no new resources", "more-ideas"),
+    Method("c-k-theory", "C-K Theory", "more-ideas", False, "c-k concept knowledge expansion partition undecidable generative variation exhausted selection design square hatchuel weil restrictive expansive learning agenda", "more-ideas"),
+    Method("bodystorming", "Bodystorming", "more-ideas", False, "bodystorming embodied enactment props space role play walkthrough spatial service interaction hard picture handoffs touchpoints friction threshold waiting recovery", "more-ideas"),
+    Method("synectics", "Synectics + Excursion", "more-ideas", False, "synectics excursion personal direct symbolic fantasy analogy analogies familiar strange shallow forced connections mechanism springboard gordon prince", "more-ideas"),
+    # Perspectives — broader perspectives (7 + 2 extended)
     Method("six-thinking-hats", "Six Thinking Hats", "broader-perspectives", True, "brainstorming brainstorming criticism critique interrupt interrupting hats white red black yellow green blue modes keep", "broader-perspectives"),
     Method("dreamer-realist-critic", "Disney Creative Strategy", "broader-perspectives", False, "bold vision idea execution route dreamer realist critic phases distinct disney strategy", "broader-perspectives"),
     Method("stakeholder-perspectives", "Stakeholder Perspective-Taking", "broader-perspectives", False, "needs constraints overlooked groups burden tradeoff stakeholder who does this hurt", "broader-perspectives"),
@@ -57,7 +61,9 @@ METHODS: list[Method] = [
     Method("scenario-planning", "Scenario Planning", "broader-perspectives", False, "plausible future futures scenario scenarios uncertainties uncertain robust signals planning", "broader-perspectives"),
     Method("backcasting", "Backcasting", "broader-perspectives", False, "desired future backward milestones long-term ambition route backcasting backcast", "broader-perspectives"),
     Method("futures-wheel", "Futures Wheel", "broader-perspectives", False, "immediate consequences consequences of consequences ripple unintended effects wheel second order", "broader-perspectives"),
-    # Decide — stronger options
+    Method("rich-picture-catwoe", "Rich Picture + CATWOE", "broader-perspectives", False, "rich picture catwoe customers actors transformation worldview owners environment checkland soft systems messy situation root definition", "broader-perspectives"),
+    Method("causal-loop-diagram", "Causal Loop Diagram", "broader-perspectives", False, "causal loop reinforcing balancing feedback delay archetype leverage polarity fix keeps making problem worse structure behavior over time system dynamics fixes that fail shifting burden limits success", "broader-perspectives"),
+    # Decide — stronger options (5)
     Method("double-diamond", "Double Diamond", "stronger-options", False, "discover define develop deliver divergence convergence structure diamond", "stronger-options"),
     Method("triz-contradictions", "TRIZ Contradiction Thinking", "stronger-options", False, "contradiction tradeoff trade tradeoffs recurring fixing breaks worsens improving one property worsens another inventive principles separation compromise technical triz", "stronger-options"),
     Method("concept-blending", "Concept Blending", "stronger-options", False, "combine mechanisms synthesized coherent partial ideas strengths blending", "stronger-options"),
@@ -67,8 +73,8 @@ METHODS: list[Method] = [
 
 NEED_KEYWORDS: dict[str, set[str]] = {
     "better-question": {"vague", "overconstrained", "assumption", "right", "question", "stuck", "reframe", "narrow", "abstract", "why", "brief", "define", "framing"},
-    "more-ideas": {"baseline", "concept", "improve", "varied", "alternatives", "scamper", "dimensions", "similar", "anchoring", "modify", "variations"},
-    "broader-perspectives": {"stakeholder", "future", "futures", "scenario", "scenarios", "consequences", "ripple", "what", "uncertain", "uncertainties", "perspectives", "broad", "effects", "hurt", "overlooked", "signals", "criticism", "critique", "interrupt", "interrupting", "vision", "bold", "route", "backcasting", "wheel"},
+    "more-ideas": {"baseline", "concept", "improve", "varied", "alternatives", "scamper", "dimensions", "similar", "anchoring", "modify", "variations", "closed", "subtraction", "synectics", "excursion", "bodystorming", "enactment", "expansion", "partition"},
+    "broader-perspectives": {"stakeholder", "future", "futures", "scenario", "scenarios", "consequences", "ripple", "what", "uncertain", "uncertainties", "perspectives", "broad", "effects", "hurt", "overlooked", "signals", "criticism", "critique", "interrupt", "interrupting", "vision", "bold", "route", "backcasting", "wheel", "feedback", "loop", "loops", "reinforcing", "balancing", "archetype", "leverage", "rich", "picture", "catwoe", "worldview", "messy"},
     "stronger-options": {"tradeoff", "tradeoffs", "trade", "contradiction", "recurring", "fixing", "breaks", "portfolio", "premortem", "failed", "failure", "candidate", "choose", "commit", "worsens", "robust", "strengthen", "fail"},
 }
 
@@ -114,7 +120,7 @@ def score_method(m: Method, need: str | None, trigger_tokens: set[str], output_n
     else:
         output = 2 if (need and m.group == need) else 0
 
-    wild = {"lateral-thinking", "what-if", "forced-connections", "ideal-final-result", "constraint-driven-ideation"}
+    wild = {"lateral-thinking", "what-if", "forced-connections", "ideal-final-result", "constraint-driven-ideation", "synectics", "c-k-theory"}
     if appetite == "low" and m.slug in wild:
         appetite_s = 0
     elif appetite == "high" or m.slug not in wild:
@@ -131,6 +137,7 @@ def score_method(m: Method, need: str | None, trigger_tokens: set[str], output_n
         "scenario-planning": 45, "backcasting": 40, "dreamer-realist-critic": 35, "six-thinking-hats": 35,
         "double-diamond": 60, "triz-contradictions": 35, "brainwriting": 20, "reverse-brainstorming": 15,
         "ideal-final-result": 15,
+        "systematic-inventive-thinking": 20, "c-k-theory": 30, "bodystorming": 35, "rich-picture-catwoe": 35, "causal-loop-diagram": 35, "synectics": 25,
     }
     if time_min is None:
         time_s = 1

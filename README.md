@@ -1,6 +1,6 @@
 # agent-thinking-skills
 
-Skills that help agents reason better, think more creatively, and explore ideas more broadly. Distributed as a Claude Code plugin marketplace. Targets **Codex and Claude Code**. 29 skills, a router, an example gallery, two agent workflows, and a shared workspace.
+Skills that help agents reason better, think more creatively, and explore ideas more broadly. Distributed as a Claude Code plugin marketplace. Targets **Codex and Claude Code**. 35 skills, a router (33 methods), an example gallery, two agent workflows, and a shared workspace.
 
 ## Install
 
@@ -13,7 +13,7 @@ For local development, use the repo path instead: `/plugin marketplace add ./`
 
 ## Skills
 
-29 skills across four categories plus a router and a divergent-thinking baseline. Every skill follows progressive disclosure: YAML front matter (always loaded) → `SKILL.md` body (lean process) → `references/*.md` on demand → `scripts/*.py` offline helpers.
+35 skills (27 base + 6 extended) across four categories plus a router and a divergent-thinking baseline — catalog is 33 methods (27+6). Every skill follows progressive disclosure: YAML front matter (always loaded) → `SKILL.md` body (lean process) → `references/*.md` on demand → `scripts/*.py` offline helpers.
 
 ### Reframe the problem
 
@@ -62,15 +62,27 @@ For local development, use the repo path instead: `/plugin marketplace add ./`
 | `premortem` | "Already failed" → independent reasons → prevention/monitoring | Before commitment |
 | `options-portfolio` | Achievable / ambitious / exploratory portfolio with a probe each | Broad set needs narrowing |
 
+### Extended — beyond the 27 (research synthesis)
+| Skill | What it does | Use when |
+|---|---|---|
+| `systematic-inventive-thinking` | SIT's 5 closed-world operators (Subtraction / Multiplication / Division / Task Unification / Attribute Dependency) — no new resource types | Have a concrete system, strict constraints |
+| `c-k-theory` | C-K Theory: expand Concept and Knowledge together (restrictive vs expansive partitions) | Variation exhausted; need generative expansion |
+| `bodystorming` | Enact with props/space/walkthrough to surface embodied friction | Spatial/service interaction hard to picture |
+| `rich-picture-catwoe` | Rich Picture + CATWOE → root definition (Checkland/SSM) | Messy situation, no shared picture |
+| `causal-loop-diagram` | Reinforcing/Balancing loops, delays, archetypes, Meadows leverage | Fix keeps making its problem worse |
+| `synectics` | Synectics 4 analogies (Personal/Direct/Symbolic/Fantasy) + Excursion → springboards | Familiar analogies stall; need deeper excursion |
+
+Source: `megamouth/research/extended-methods/synthesis.md` (6 top-ranked from 41 candidates + 7 arXiv/8 OpenAlex).
+
 ### Router & baseline
 
 | Skill | What it does | Use when |
 |---|---|---|
-| `thinking-router` | Triage into *better question / more ideas / broader perspectives / stronger options*, scores 27 methods, hands off with user confirmation | Unsure which method fits; "help me think creatively" |
+| `thinking-router` | Triage into *better question / more ideas / broader perspectives / stronger options*, scores 33 methods (27 base + 6 extended), hands off with user confirmation | Unsure which method fits; "help me think creatively" |
 | `divergent-thinking` | 10+ options → lenses → cluster → converge | Need many varied options before choosing one |
 
 Full method list and triggers: `plugins/thinking-skills/skills/thinking-router/references/catalog.md`.
-Source catalog: `megamouth/docs/creative-thinking-methodologies.md`.
+Source catalog: `megamouth/docs/creative-thinking-methodologies.md` (27) + `megamouth/research/extended-methods/synthesis.md` (6 extended) — router catalog is 33.
 Examples run offline where noted via `scripts/*.py` (seeded, deterministic, no network).
 
 ## Example Gallery
@@ -117,4 +129,4 @@ open workspace/index.html              # or: python -m http.server 8000
 
 See [CLAUDE.md](CLAUDE.md) for layout and the progressive-disclosure rules. Start new skills from `templates/skill/` and run `python3 scripts/validate.py`.
 
-Versioning: bump `version` in both `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` for releases. Current: `0.3.0` (29 skills + gallery + workflows + workspace).
+Versioning: bump `version` in both `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` for releases. Current: `0.4.0` (35 skills: 27 base + 6 extended + router + divergent-thinking; 33-method router; gallery + workflows + workspace).

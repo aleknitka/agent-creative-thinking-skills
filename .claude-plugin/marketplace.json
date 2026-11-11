@@ -4,28 +4,34 @@
     "name": "alek"
   },
   "metadata": {
-    "description": "Skills that help agents reason better, think more creatively, and explore ideas more broadly. 29 skills for reframing, divergent ideation, perspectives, and hardening \u2014 with a thinking-router."
+    "description": "Skills that help agents reason better, think more creatively, and explore ideas more broadly. 35 skills (27 base + 6 extended + router + divergent-thinking) \u2014 with a 33-method thinking-router."
   },
   "plugins": [
     {
       "name": "thinking-skills",
       "source": "./plugins/thinking-skills",
-      "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (29 skills) plus a thinking-router, gallery, workflows, and shared workspace.",
-      "version": "0.3.0",
+      "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (35 skills: 27 base + 6 extended + router + divergent-thinking) plus a thinking-router, gallery, workflows, and shared workspace.",
+      "version": "0.4.0",
       "category": "reasoning",
       "keywords": [
-        "creativity",
-        "reasoning",
-        "brainstorming",
-        "thinking",
-        "lateral-thinking",
-        "scamper",
-        "thinking-router",
-        "six-thinking-hats",
-        "premortem",
         "analogical-thinking",
-        "workspace",
-        "whiteboard"
+        "bodystorming",
+        "brainstorming",
+        "c-k-theory",
+        "causal-loop-diagram",
+        "creativity",
+        "lateral-thinking",
+        "premortem",
+        "reasoning",
+        "rich-picture-catwoe",
+        "scamper",
+        "six-thinking-hats",
+        "synectics",
+        "systematic-inventive-thinking",
+        "thinking",
+        "thinking-router",
+        "whiteboard",
+        "workspace"
       ]
     }
   ]

@@ -2,7 +2,7 @@
 
 ## Lineage
 
-The router is original synthesis for this repository. The method catalog it scores is `megamouth/docs/creative-thinking-methodologies.md` (27 methods grouped into Reframe / Generate / Explore / Decide, plus the Suggested first 8).
+The router is original synthesis for this repository. The method catalog it scores is `megamouth/docs/creative-thinking-methodologies.md` (27) plus 6 extended methods from `research/extended-methods/synthesis.md` — 33 total grouped into Reframe / Generate / Explore / Decide, plus the Suggested first 8.
 
 Each routed method carries its own lineage (de Bono — Lateral Thinking / Six Thinking Hats; Osborn — brainstorming; Eberle — SCAMPER; Altshuller — TRIZ; Rohrbach — 6-3-5 brainwriting; Knapp — Crazy Eights / Design Sprint; Wack/Schwartz — Scenario Planning; Robinson — Backcasting; Glenn — Futures Wheel; British Design Council — Double Diamond, and others). See the routed skill's `references/provenance.md` for method-specific attribution.
 

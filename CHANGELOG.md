@@ -2,6 +2,41 @@
 
 All notable changes to `agent-thinking-skills` follow Keep a Changelog and align with the `plugin.json` / `marketplace.json` versions.
 
+## [0.4.0] — 2026-11-11
+
+### Added — 6 extended skills beyond the 27 + router upgrade to 33 methods
+
+**Extended skills (source: `megamouth/research/extended-methods/synthesis.md` — top 6 of 41 candidates, 7 arXiv + 8 OpenAlex):**
+
+| Skill | Family | One-line output | Evidence |
+|---|---|---|---|
+| `systematic-inventive-thinking` (SIT) | Structured inventive — inside-the-box (Subtraction/Multiplication/Division/Task Unification/Attribute Dependency) | 5-operator closed-world matrix | W4407721440, W2753361279, sitsite.com |
+| `c-k-theory` (Hatchuel/Weil) | Meta-theory — joint C/K expansion | C-tree + K expansions + learning agenda | W2049599278, W4298440840 |
+| `bodystorming` | Embodied — props/space/enactment | Walkthrough + friction clusters + probes | 1308.4978 |
+| `rich-picture-catwoe` (Checkland/SSM) | Systems — visual sensemaking + worldview | Rich picture + CATWOE → root definition | IfM/SSM |
+| `causal-loop-diagram` | Systems — feedback loops, delays, archetypes, Meadows leverage | CLD + leverage map | Systems Dynamics / Meadows |
+| `synectics` (Gordon/Prince) | Analogical — 4 analogies + excursion | Four analogies + excursion → springboards | Synectics lit; complements `analogical-thinking` |
+
+Each ships with: lean `SKILL.md` (hub, ≤500 lines) + 5–8 leaf `references/*.md` + offline `scripts/*.py` (`--list/--json/--seed`, no deps), progressively disclosed. No bundled third-party long verbatim; provenance in `references/provenance.md`.
+
+Light touch-ups (no new skills, documented as patterns):
+
+- `Dot Voting` + `Ecocycle Planning` + `15% Solutions` → `options-portfolio/references/portfolio.md`
+- `1-2-4-All` → `brainwriting/references/facilitation.md`
+- `15% Solutions` → `futures-wheel/references/when-not-to-use.md`
+
+### Changed
+
+- `thinking-router` — 27 → 33 methods (27 base + 6 extended): `references/catalog.md` now 33 (★ base / ◆ extended), `scripts/route.py` now 33 grouped entries with tuned triggers/budgets/appetite; `SKILL.md`/`references/routing-logic.md`/`references/provenance.md` updated; `--list` groups `better-question / more-ideas / broader-perspectives / stronger-options` correctly. Ranking verified for extended triggers (e.g., "fix keeps making it worse" → `causal-loop-diagram`, "no shared picture" → `rich-picture-catwoe`, "no new resources" → `systematic-inventive-thinking`).
+- `README.md` — counts 29 → 35 skills (27 base + 6 extended + router + divergent-thinking), router 27 → 33 methods, new **Extended — beyond the 27** section, source catalog note extended, version `0.3.0` → `0.4.0`; tagline updated.
+- `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` — version `0.3.0` → `0.4.0`; descriptions updated to 35 skills / 33-method router; keywords expanded.
+
+### Notes
+
+- Counts: 35 skills on disk (`27 + 6 extended + thinking-router + divergent-thinking`), catalog distinct slugs 35, `route.py` 33 methods; light patterns are not separate skills.
+- Packaging: `scripts/validate.py → OK`, `route.py --list` groups correctly, hub-and-spoke preserved (no nested links in `references/` leaves).
+
+
 ## [0.3.0] — 2026-11-10
 
 ### Added — Example gallery, agent workflows, and shared workspace

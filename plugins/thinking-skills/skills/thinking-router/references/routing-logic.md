@@ -26,7 +26,7 @@ Mixed signals are normal. Pick the *next* artifact the user needs, not the final
 
 ## 2. Score each method (0-3 per signal, sum wins)
 
-For each of the 27 methods in the catalog, add points:
+For each of the 33 methods (27 base + 6 extended) in the catalog, add points:
 
 | Signal | +2 | +1 | +0 |
 |---|---|---|---|
