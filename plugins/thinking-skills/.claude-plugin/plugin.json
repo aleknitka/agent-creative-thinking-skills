@@ -1,7 +1,7 @@
 {
   "name": "thinking-skills",
-  "version": "0.4.0",
-  "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (35 skills: 27 base + 6 extended + router + divergent-thinking) plus a 33-method thinking-router, gallery, workflows, and shared workspace.",
+  "version": "0.5.0",
+  "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (39 skills: 27 base + 10 extended + router + divergent-thinking) plus a 37-method thinking-router, gallery, workflows, and shared workspace.",
   "author": {
     "name": "alek"
   },
@@ -12,7 +12,11 @@
     "c-k-theory",
     "causal-loop-diagram",
     "creativity",
+    "dot-voting-prioritize",
     "lateral-thinking",
+    "liberating-structures",
+    "lotus-blossom",
+    "nominal-group-technique",
     "premortem",
     "reasoning",
     "rich-picture-catwoe",

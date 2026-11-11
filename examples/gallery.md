@@ -143,9 +143,88 @@ python plugins/thinking-skills/skills/scamper/scripts/scamper.py --subject "onbo
 
 ---
 
+## 5 · Extended & convergence (6 + 4 beyond the 27)
+
+### Systematic Inventive Thinking — strict constraints
+
+**Prompt:**
+> We have an invite system with fixed components — no new budget or channel. Mutate it inside the closed world.
+
+**Skill:** `systematic-inventive-thinking` → pick one SIT operator (Subtraction / Multiplication / Division / Task Unification / Attribute Dependency) → virtual product → enrich → probe.  
+**Helper:** `python plugins/thinking-skills/skills/systematic-inventive-thinking/scripts/sit.py --list`
+
+### C-K Theory — variation exhausted
+
+**Prompt:**
+> We've tried every variant of the invite — need generative expansion, not selection. Build a C-tree and name the missing K.
+
+**Skill:** `c-k-theory` → restrictive vs expansive partitions → K pockets → design square → probe.
+
+### Bodystorming — service you can't picture
+
+**Prompt:**
+> Walk through the activation as bodies in space — where do people hesitate, collide, wait, or recover?
+
+**Skill:** `bodystorming` → space + props → walkthrough → friction clusters → spatial probe.
+
+### Rich Picture + CATWOE — messy situation
+
+**Prompt:**
+> No one shares the same picture of why capacity fails. Draw the mess, then define the system with CATWOE.
+
+**Skill:** `rich-picture-catwoe` → rich picture → CATWOE → root definition → debate.
+
+### Causal Loop Diagram — fix makes problem worse
+
+**Prompt:**
+> More reminders → less attention → lower activation. Map the loops and find leverage.
+
+**Skill:** `causal-loop-diagram` → variables → polarity + delays → R/B loops → archetypes → leverage map.
+
+### Synectics — familiar analogies stall
+
+**Prompt:**
+> "Onboarding as invitation" is tired. Make the familiar strange with four analogies, then excursion.
+
+**Skill:** `synectics` → personal / direct / symbolic / fantasy → excursion → springboards.
+
+### Liberating Structures — hierarchy dominates
+
+**Prompt:**
+> 14 people, senior voices dominate. Run a fair micro-structure sequence.
+
+**Skill:** `liberating-structures` → choose 1-2 of 1-2-4-All / Impromptu Networking / 15% Solutions / TRIZ / Wicked Questions / Ecocycle → timed run → harvest.  
+**Helper:** `python plugins/thinking-skills/skills/liberating-structures/scripts/ls.py --list`
+
+### Nominal Group Technique / Delphi — need defensible ranking
+
+**Prompt:**
+> 14 fixes competing for one quarter — need credible, bias-resistant ranking with dissent logged.
+
+**Skill:** `nominal-group-technique` → silent write → round-robin → clarify → vote (5-4-3-2-1 or N/3) / Delphi median-IQR → tally + dissent.  
+**Helper:** `python plugins/thinking-skills/skills/nominal-group-technique/scripts/ngt.py --count 12 --voters 6 --method ranked --json`
+
+### Lotus Blossom — need 30–70 ideas with lineage
+
+**Prompt:**
+> 8 ideas aren't enough but morph box is too combinatorial. Bloom radial 8×8.
+
+**Skill:** `lotus-blossom` → centre → 8 petals → each petal 8 blooms (=72) → prune → harvest 3–5.  
+**Helper:** `python plugins/thinking-skills/skills/lotus-blossom/scripts/lotus.py --theme "reduce week-1 drop" --json`
+
+### Dot Voting + Impact–Effort — too many, need visible priority
+
+**Prompt:**
+> 18 candidates on the wall — need a quick shortlist that shows effort honestly.
+
+**Skill:** `dot-voting-prioritize` → N/3 dots (simultaneous) → impact–effort plot → ICE where data exists → keep/pivot/kill + owners.  
+**Helper:** `python plugins/thinking-skills/skills/dot-voting-prioritize/scripts/vote.py --count 18 --voters 6 --impact-effort --json`
+
+---
+
 ## End-to-end chain (copy-paste ready)
 
-> You are the `thinking-router`. Triage whether we need a better question, more ideas, broader perspectives, or stronger options for: "Onboarding drops 32% before first value; invites carry no intent, activation is uninstrumented." Score 27 methods, shortlist 2–3, then hand off to the primary with user confirmation. If we pick lateral-thinking, carry the intake forward; end with a probe.
+> You are the `thinking-router`. Triage whether we need a better question, more ideas, broader perspectives, or stronger options for: "Onboarding drops 32% before first value; invites carry no intent, activation is uninstrumented." Score 37 methods, shortlist 2–3, then hand off to the primary with user confirmation. If we pick lateral-thinking, carry the intake forward; end with a probe.
 >
 > After the router hands off, continue as that skill and produce its artifact (Po set, box, scenarios, etc.) — one hat/operator at a time, no rewordings.
 

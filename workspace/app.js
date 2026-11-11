@@ -23,6 +23,16 @@ const TEMPLATES = {
   "crazy-eights": { title: "Crazy 8s", lanes: ["1","2","3","4","5","6","7","8"]},
   backcasting: { title: "Backcasting", lanes: ["2030 — future","2028","2027","2026 — today"]},
   "morph-box": { title: "Morph Box", lanes: ["D1 Trigger","D2 Channel","D3 Timing","D4 Owner"]},
+  sit: { title: "SIT (5 operators)", lanes: ["S Subtraction","M Multiplication","D Division","T Task Unification","A Attribute Dependency"]},
+  "c-k-theory": { title: "C-K Theory", lanes: ["C0 initial concept","C partitions","K pockets","Learning agenda"]},
+  bodystorming: { title: "Bodystorming", lanes: ["Before","During","After","Friction clusters"]},
+  "rich-picture-catwoe": { title: "Rich Picture + CATWOE", lanes: ["Actors","Flows","Tensions","CATWOE","Root definition"]},
+  "causal-loop": { title: "Causal Loop Diagram", lanes: ["Variables","R loops","B loops","Delays","Leverage"]},
+  synectics: { title: "Synectics", lanes: ["Personal","Direct","Symbolic","Fantasy","Excursion","Springboards"]},
+  "liberating-structures": { title: "Liberating Structures", lanes: ["1-2-4-All","Impromptu Networking","15% Solutions","TRIZ","Wicked Q","Ecocycle"]},
+  "nominal-group": { title: "NGT / Delphi", lanes: ["Silent ideas","Round-robin","Clarify","Vote 5-4-3-2-1","Dissent log"]},
+  "lotus-blossom": { title: "Lotus Blossom", lanes: ["Centre","P1","P2","P3","P4","P5","P6","P7","P8"]},
+  "dot-voting": { title: "Dot Voting + Impact–Effort", lanes: ["Dots N/3","Quick wins","Strategic","Fill-ins","Avoid","Keep/Pivot/Kill"]},
 };
 
 const COLORS = { fact: "#ffeb3b", assumption: "#81d4fa", speculation: "#ef9a9a", action: "#c8e6c9", question: "#ffe0b2" };

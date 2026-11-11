@@ -2,6 +2,38 @@
 
 All notable changes to `agent-thinking-skills` follow Keep a Changelog and align with the `plugin.json` / `marketplace.json` versions.
 
+## [0.5.0] — 2026-11-11
+
+### Added — 4 more extended skills (backlog 7–10) + workspace/gallery for all 10 extended
+
+**New skills — completing `research/extended-methods/synthesis.md` (10 of 41 candidates; 0.4.0 shipped 6, this ships 7–10):**
+
+| Skill | Family | One-line output | Evidence |
+|---|---|---|---|
+| `liberating-structures` | Facilitation — 6 Liberating Structures (1-2-4-All / Impromptu Networking / 15% Solutions / TRIZ / Wicked Questions / Ecocycle Planning) | 6 micro-structures cheatsheet + timed harvest | Lipmanowicz & McCandless (2014), liberatingstructures.com |
+| `nominal-group-technique` | Convergence — NGT (Delbecq & Van de Ven 1971) + Delphi (Dalkey/Helmer RAND) | Silent write → round-robin → vote (5-4-3-2-1 / N/3 / Delphi median-IQR) + dissent log | OpenAlex NGT/Delphi lit |
+| `lotus-blossom` | Divergence — MY Lotus Blossom 8×8 (Matsumura) | Centre → 8 petals → 72 blooms → prune → harvest; distinct from morph box (combinatorial) & crazy-8s (flat 8) | Matsumura / Mycoted |
+| `dot-voting-prioritize` | Convergence — structured dot voting (N/3, at-most-one-per-item) + Impact–Effort + ICE (Sean Ellis) | N/3 dots → impact–effort 2×2 → keep/pivot/kill | Practitioner (ICE: Sean Ellis); complements `options-portfolio` |
+
+Each: lean `SKILL.md` (≤59 lines) + 5–7 leaf `references/*.md` + offline `scripts/*.py` (`--list/--json/--seed`, no deps), hub-and-spoke verified.
+
+**Cheap wins for all 10 extended skills:**
+
+- `examples/gallery.md` — new **§5 Extended & convergence (6 + 4 beyond the 27)** with one prompt + artifact + helper per extended skill (10 total); end-to-end chain 27→33→37.
+- `workspace/` — 10 new board templates (`sit`, `c-k-theory`, `bodystorming`, `rich-picture-catwoe`, `causal-loop`, `synectics`, `liberating-structures`, `nominal-group`, `lotus-blossom`, `dot-voting`) in `workspace/app.js` + `workspace/boards/_schema.json` enum (now 17) + `workspace/index.html` `<select>` (17 options). All use existing sticky-note/lane I/O; no new deps.
+
+### Changed
+
+- `thinking-router` — 33 → 37 methods: `scripts/route.py` 37 grouped entries (`better-question 6 / more-ideas 14 / broader-perspectives 10 / stronger-options 7`) with budgets for LS/NGT/Lotus/Dot; tuned NEED_KEYWORDS for lotus/radial/petal and ranking/consensus/ICE; `references/catalog.md` 33→37 (27+10), `SKILL.md`/`references/routing-logic.md`/`references/provenance.md` updated.
+- `README.md` — 35 → 39 skills (27 base + 10 extended + router + divergent-thinking), router 33→37, Extended table 6→10 rows, source note 6→10, version `0.4.0`→`0.5.0`.
+- `.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json` — version `0.4.0`→`0.5.0`; descriptions 35→39 / 33→37; keywords +4 new slugs.
+
+### Notes
+
+- Counts: 39 skills on disk (27 + 10 + router + divergent), catalog distinct slugs 39, `route.py` 37 methods (LS & relatives are facilitation layers not separately scored in every group), light patterns remain non-skill patterns.
+- Packaging: `scripts/validate.py → OK` (39 skills), `route.py --list` groups correctly, `--text` routing verified for new triggers (e.g., "1-2-4-All" → LS, "NGT ranking" → nominal-group-technique, "lotus blossom" → lotus-blossom, "dot voting" → dot-voting-prioritize).
+
+
 ## [0.4.0] — 2026-11-11
 
 ### Added — 6 extended skills beyond the 27 + router upgrade to 33 methods

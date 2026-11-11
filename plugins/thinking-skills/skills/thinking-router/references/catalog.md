@@ -1,6 +1,6 @@
-# Catalog — 33 Creative-Thinking Methods (27 + 6 extended)
+# Catalog — 37 Creative-Thinking Methods (27 + 10 extended)
 
-Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 6 from `research/extended-methods/synthesis.md` (SIT, C-K Theory, Bodystorming, Rich Picture+CATWOE, Causal Loop Diagram, Synectics). ★ = Suggested first 8 of the base catalog; ◆ = extended.
+Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 10 from `research/extended-methods/synthesis.md` (SIT, C-K Theory, Bodystorming, Rich Picture+CATWOE, Causal Loop Diagram, Synectics, Liberating Structures, NGT/Delphi, Lotus Blossom, Dot Voting + Impact–Effort). ★ = Suggested first 8 of the base catalog; ◆ = extended.
 
 ## 1. Reframe the problem
 
@@ -30,6 +30,7 @@ Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 
 | 15 | `ideal-final-result` | Ideal Final Result (TRIZ) |  | Incremental improvement feels insufficient | Ideal-state description + steps toward it |
 | — | `synectics` | Synectics + Excursion | ◆ | Familiar analogies stall; forced connections too shallow | Four analogies + excursion → springboards |
 | — | `bodystorming` | Bodystorming | ◆ | Spatial/service interaction hard to picture | Walkthrough + friction clusters + probes |
+| — | `lotus-blossom` | Lotus Blossom (8×8) | ◆ | Need 30–70 ideas with lineage, 8 not enough | 8 petals × 8 blooms → prune → harvest |
 
 ## 3. Explore perspectives and possibilities
 
@@ -44,6 +45,7 @@ Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 
 | 22 | `futures-wheel` | Futures Wheel |  | Idea may have broad ripple effects | 1st / 2nd / nth-order consequences map |
 | — | `causal-loop-diagram` | Causal Loop Diagram | ◆ | Fix keeps making its problem worse; need leverage | R/B loops, delays, leverage-point map |
 | — | `rich-picture-catwoe` | Rich Picture + CATWOE | ◆ | Messy situation, no shared picture | Rich picture + CATWOE → root definition |
+| — | `liberating-structures` | Liberating Structures (6) | ◆ | Hierarchy dominates, need equal-voice micro-structure | 1-2-4-All / TRIZ / 15% / Ecocycle harvest |
 | — | `synectics` | Synectics + Excursion | ◆ | *(listed above; bridges Generate and Explore)* | Four analogies + springboards |
 
 *Synectics is listed in Generate (its excursion) but routes also to Broader Perspectives when the excursion opens a new worldview; the router scores both.*
@@ -57,6 +59,8 @@ Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 
 | 25 | `concept-blending` | Concept Blending |  | Several partial ideas each have something valuable | Synthesized concepts with rationale (not feature pile) |
 | 26 | `premortem` | Premortem | ★ | Have a promising idea, before commitment | Failure hypotheses, warning signs, strengthening changes |
 | 27 | `options-portfolio` | Options Portfolio |  | Broad idea set needs narrowing without picking only safest/boldest | Small portfolio (achievable / ambitious / exploratory) + next experiment each |
+| — | `nominal-group-technique` | Nominal Group Technique / Delphi | ◆ | Need defensible ranking with dissent logged | Silent write → round-robin → vote (5-4-3-2-1 / N/3) |
+| — | `dot-voting-prioritize` | Dot Voting + Impact–Effort / ICE | ◆ | Many ideas need visible priority, effort matters | N/3 dots → impact–effort → keep/pivot/kill |
 | — | `systematic-inventive-thinking` | Systematic Inventive Thinking | ◆ | *(listed above; also routes here when 2–3 candidates need hardening)* | Closed-world matrix + probes |
 | — | `c-k-theory` | C-K Theory | ◆ | *(listed above; also routes here when expansion needs evaluation)* | C-tree + probes |
 
@@ -65,7 +69,7 @@ Source: `megamouth/docs/creative-thinking-methodologies.md` (27). Extended with 
 - Methods overlap intentionally. Router prefers one primary + one alternate rather than forcing a single answer.
 - If no installed skill matches the top pick, run the closest analogue and note the gap (e.g., `lateral-thinking` ≈ `divergent-thinking` + lenses).
 - Agent/workflow candidates: `brainwriting` (parallel generation), `dreamer-realist-critic` (3-phase sequential), `six-thinking-hats` (6-mode + Blue synthesis), `scenario-planning`/`futures-wheel`/`morphological-analysis` (parallel then converge), `double-diamond` (orchestrator of other methods).
-- **Extended skills** reuse the same progressively-disclosed shape: `SKILL.md` (hub) + 5–7 leaf `references/*.md` + offline `scripts/*.py`; `thinking-router` scoring covers 33 (27 base + 6 extended) where installed.
+- **Extended skills** reuse the same progressively-disclosed shape: `SKILL.md` (hub) + 5–7 leaf `references/*.md` + offline `scripts/*.py`; `thinking-router` scoring covers 37 (27 base + 10 extended) where installed.
 - **Light touch-ups (no new skills):** `Dot Voting` and `15% Solutions` are documented in `options-portfolio` portfolio prioritization; `1-2-4-All` is noted in `brainwriting` facilitation; `Ecocycle Planning` is noted as a phase lens in `options-portfolio`. These are patterns, not separate skills.
 
 ## Extended-method references

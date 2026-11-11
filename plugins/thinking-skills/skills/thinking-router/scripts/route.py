@@ -2,7 +2,7 @@
 """
 route.py — deterministic helper for thinking-router.
 
-Scores the 33 creative-thinking methods against intake signals and proposes
+Scores the 37 creative-thinking methods against intake signals and proposes
 a ranked shortlist. Runs offline, no dependencies.
 
 Usage:
@@ -21,7 +21,7 @@ import re
 import textwrap
 from dataclasses import dataclass
 
-# Must match references/catalog.md (33 entries: 27 base + 6 extended).
+# Must match references/catalog.md (37 entries: 27 base + 10 extended).
 @dataclass(frozen=True)
 class Method:
     slug: str
@@ -39,7 +39,7 @@ METHODS: list[Method] = [
     Method("question-storming", "Question Storming", "better-question", False, "vague brief questions before answers who defines revised problem statement right question", "better-question"),
     Method("abstraction-laddering", "Abstraction Laddering", "better-question", False, "too narrow too abstract why does it matter how could this happen ladder up down", "better-question"),
     Method("inversion", "Inversion", "better-question", False, "guarantee failure opposite unwanted outcome obstacles", "better-question"),
-    # Generate — more ideas (9 + 4 extended)
+    # Generate — more ideas (9 base + 5 extended: SIT, C-K, bodystorming, synectics, lotus-blossom)
     Method("scamper", "SCAMPER", "more-ideas", True, "improve existing product workflow substitute combine adapt modify eliminate reverse rearrange", "more-ideas"),
     Method("reverse-brainstorming", "Reverse Brainstorming", "more-ideas", False, "brainstorming stalled make worse", "more-ideas"),
     Method("forced-connections", "Forced Connections", "more-ideas", False, "too similar surprising random stimulus forced connections unrelated word", "more-ideas"),
@@ -53,7 +53,8 @@ METHODS: list[Method] = [
     Method("c-k-theory", "C-K Theory", "more-ideas", False, "c-k concept knowledge expansion partition undecidable generative variation exhausted selection design square hatchuel weil restrictive expansive learning agenda", "more-ideas"),
     Method("bodystorming", "Bodystorming", "more-ideas", False, "bodystorming embodied enactment props space role play walkthrough spatial service interaction hard picture handoffs touchpoints friction threshold waiting recovery", "more-ideas"),
     Method("synectics", "Synectics + Excursion", "more-ideas", False, "synectics excursion personal direct symbolic fantasy analogy analogies familiar strange shallow forced connections mechanism springboard gordon prince", "more-ideas"),
-    # Perspectives — broader perspectives (7 + 2 extended)
+    Method("lotus-blossom", "Lotus Blossom", "more-ideas", False, "lotus blossom radial 8x8 centre petals blooms matsumura divergence hierarchical", "more-ideas"),
+    # Perspectives — broader perspectives (7 base + 3 extended: rich-picture, causal-loop, liberating-structures)
     Method("six-thinking-hats", "Six Thinking Hats", "broader-perspectives", True, "brainstorming brainstorming criticism critique interrupt interrupting hats white red black yellow green blue modes keep", "broader-perspectives"),
     Method("dreamer-realist-critic", "Disney Creative Strategy", "broader-perspectives", False, "bold vision idea execution route dreamer realist critic phases distinct disney strategy", "broader-perspectives"),
     Method("stakeholder-perspectives", "Stakeholder Perspective-Taking", "broader-perspectives", False, "needs constraints overlooked groups burden tradeoff stakeholder who does this hurt", "broader-perspectives"),
@@ -63,19 +64,22 @@ METHODS: list[Method] = [
     Method("futures-wheel", "Futures Wheel", "broader-perspectives", False, "immediate consequences consequences of consequences ripple unintended effects wheel second order", "broader-perspectives"),
     Method("rich-picture-catwoe", "Rich Picture + CATWOE", "broader-perspectives", False, "rich picture catwoe customers actors transformation worldview owners environment checkland soft systems messy situation root definition", "broader-perspectives"),
     Method("causal-loop-diagram", "Causal Loop Diagram", "broader-perspectives", False, "causal loop reinforcing balancing feedback delay archetype leverage polarity fix keeps making problem worse structure behavior over time system dynamics fixes that fail shifting burden limits success", "broader-perspectives"),
-    # Decide — stronger options (5)
+    Method("liberating-structures", "Liberating Structures", "broader-perspectives", False, "liberating structures 1-2-4-all impromptu networking 15% solutions TRIZ wicked questions ecocycle facilitation micro-structure hierarchy", "broader-perspectives"),
+    # Decide — stronger options (5 base + 2 extended: NGT, dot-voting)
     Method("double-diamond", "Double Diamond", "stronger-options", False, "discover define develop deliver divergence convergence structure diamond", "stronger-options"),
     Method("triz-contradictions", "TRIZ Contradiction Thinking", "stronger-options", False, "contradiction tradeoff trade tradeoffs recurring fixing breaks worsens improving one property worsens another inventive principles separation compromise technical triz", "stronger-options"),
     Method("concept-blending", "Concept Blending", "stronger-options", False, "combine mechanisms synthesized coherent partial ideas strengths blending", "stronger-options"),
     Method("premortem", "Premortem", "stronger-options", True, "already failed failure hypotheses warning signs strengthen before commitment premortem fail", "stronger-options"),
     Method("options-portfolio", "Options Portfolio", "stronger-options", False, "mix achievable ambitious exploratory retain narrowing portfolio experiment robust options", "stronger-options"),
+    Method("nominal-group-technique", "Nominal Group Technique", "stronger-options", False, "nominal group technique NGT Delphi silent write round robin clarify vote ranked ranking consensus anonymous expert rating dissent defensible prioritization hierarchy bias", "stronger-options"),
+    Method("dot-voting-prioritize", "Dot Voting + Impact-Effort", "stronger-options", False, "dot voting impact effort ICE prioritize N/3 dots keep pivot kill preference ranking", "stronger-options"),
 ]
 
 NEED_KEYWORDS: dict[str, set[str]] = {
     "better-question": {"vague", "overconstrained", "assumption", "right", "question", "stuck", "reframe", "narrow", "abstract", "why", "brief", "define", "framing"},
-    "more-ideas": {"baseline", "concept", "improve", "varied", "alternatives", "scamper", "dimensions", "similar", "anchoring", "modify", "variations", "closed", "subtraction", "synectics", "excursion", "bodystorming", "enactment", "expansion", "partition"},
-    "broader-perspectives": {"stakeholder", "future", "futures", "scenario", "scenarios", "consequences", "ripple", "what", "uncertain", "uncertainties", "perspectives", "broad", "effects", "hurt", "overlooked", "signals", "criticism", "critique", "interrupt", "interrupting", "vision", "bold", "route", "backcasting", "wheel", "feedback", "loop", "loops", "reinforcing", "balancing", "archetype", "leverage", "rich", "picture", "catwoe", "worldview", "messy"},
-    "stronger-options": {"tradeoff", "tradeoffs", "trade", "contradiction", "recurring", "fixing", "breaks", "portfolio", "premortem", "failed", "failure", "candidate", "choose", "commit", "worsens", "robust", "strengthen", "fail"},
+    "more-ideas": {"baseline", "concept", "improve", "varied", "alternatives", "scamper", "dimensions", "similar", "anchoring", "modify", "variations", "closed", "subtraction", "synectics", "excursion", "bodystorming", "enactment", "expansion", "partition", "lotus", "blossom", "radial", "blooms", "petals"},
+    "broader-perspectives": {"stakeholder", "future", "futures", "scenario", "scenarios", "consequences", "ripple", "what", "uncertain", "uncertainties", "perspectives", "broad", "effects", "hurt", "overlooked", "signals", "criticism", "critique", "interrupt", "interrupting", "vision", "bold", "route", "backcasting", "wheel", "feedback", "loop", "loops", "reinforcing", "balancing", "archetype", "leverage", "rich", "picture", "catwoe", "worldview", "messy", "liberating", "structures", "facilitation", "ecocycle", "wicked"},
+    "stronger-options": {"tradeoff", "tradeoffs", "trade", "contradiction", "recurring", "fixing", "breaks", "portfolio", "premortem", "failed", "failure", "candidate", "choose", "commit", "worsens", "robust", "strengthen", "fail", "rank", "ranking", "vote", "voting", "dots", "consensus", "NGT", "Delphi", "prioritize", "prioritization", "keep", "kill", "impact", "effort", "ICE"},
 }
 
 GROUP_ALIASES = {
@@ -137,7 +141,7 @@ def score_method(m: Method, need: str | None, trigger_tokens: set[str], output_n
         "scenario-planning": 45, "backcasting": 40, "dreamer-realist-critic": 35, "six-thinking-hats": 35,
         "double-diamond": 60, "triz-contradictions": 35, "brainwriting": 20, "reverse-brainstorming": 15,
         "ideal-final-result": 15,
-        "systematic-inventive-thinking": 20, "c-k-theory": 30, "bodystorming": 35, "rich-picture-catwoe": 35, "causal-loop-diagram": 35, "synectics": 25,
+        "systematic-inventive-thinking": 20, "c-k-theory": 30, "bodystorming": 35, "rich-picture-catwoe": 35, "causal-loop-diagram": 35, "synectics": 25, "liberating-structures": 30, "nominal-group-technique": 45, "lotus-blossom": 30, "dot-voting-prioritize": 15,
     }
     if time_min is None:
         time_s = 1
