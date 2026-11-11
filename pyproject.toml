@@ -1,7 +1,7 @@
 [project]
 name = "agent-thinking-skills"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.8.0"
+description = "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 research-backed extensions + router + divergent-thinking) plus a 38-method router, gallery, workflows, and shared workspace"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []

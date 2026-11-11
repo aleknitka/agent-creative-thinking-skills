@@ -17,15 +17,18 @@ No prompt engineering. Works with Claude Code, Codex, and any harness that loads
 /marketplace install thinking-skills@agent-thinking-skills
 # Pi / any skills.sh harness
 npx skills add aleknitka/agent-thinking-skills
+# Run offline helpers with uv (pip also works)
+uv run python plugins/thinking-skills/skills/thinking-router/scripts/route.py --text "brief is vague, are we solving the right problem?"
 # then in any conversation:
 > Help me think this through — not sure which method fits.
 # → thinking-router triages and hands off to 1–2 methods with your okay.
 ```
 
-**Try without an agent (offline, seeded, no network):**
+**Try without an agent (offline, seeded, no network — `uv` or `python`):**
 ```bash
-python plugins/thinking-skills/skills/thinking-router/scripts/route.py --text "brief is vague, are we solving the right problem?"
-python plugins/thinking-skills/skills/scamper/scripts/scamper.py --subject "welcome letter — 3 days after signup" --select S,E
+uv run python plugins/thinking-skills/skills/thinking-router/scripts/route.py --text "brief is vague, are we solving the right problem?"
+uv run python plugins/thinking-skills/skills/scamper/scripts/scamper.py --subject "welcome letter — 3 days after signup" --select S,E
+# pip fallback: python plugins/thinking-skills/skills/...
 ```
 
 ---
@@ -113,10 +116,10 @@ Every skill follows progressive disclosure: `SKILL.md` (lean process, always loa
 | `dot-voting-prioritize` | N/3 dots → Impact–Effort / ICE → keep/pivot/kill | Need visible priority | [Dotmocracy](plugins/thinking-skills/skills/dot-voting-prioritize/references/provenance.md) |
 | `nominal-group-technique` | Silent write → round-robin → vote / Delphi | Need hierarchy-proof ranking | [Delbecq & Van de Ven](plugins/thinking-skills/skills/nominal-group-technique/references/provenance.md) |
 
-### Research-sourced extensions — 11 methods beyond the original 27
+### From the literature — 11 research-backed extensions beyond the core 27
 
 | Skill | What it does | Use when | Provenance |
-|---|---|---|---|---|---|
+|---|---|---|---|
 | `systematic-inventive-thinking` | 5 closed-world operators — no new resource types | Concrete system, strict constraints | [SIT · Horowitz/Goldenberg](plugins/thinking-skills/skills/systematic-inventive-thinking/references/provenance.md) · [W4407721440](https://openalex.org/W4407721440) |
 | `c-k-theory` | Expand Concept & Knowledge together | Variation exhausted | [C-K · Hatchuel & Weil](plugins/thinking-skills/skills/c-k-theory/references/provenance.md) · [W2049599278](https://openalex.org/W2049599278) |
 | `bodystorming` | Enact with props/space | Interaction hard to picture | [Bodystorming · HCI](plugins/thinking-skills/skills/bodystorming/references/provenance.md) · [arXiv:1308.4978](https://arxiv.org/abs/1308.4978) |
@@ -147,9 +150,9 @@ Every skill follows progressive disclosure: `SKILL.md` (lean process, always loa
 **Start here:** [`examples/gallery.md`](examples/gallery.md) — 60-s quick start → one prompt per family → end-to-end `router → skill → probe` chain → offline helpers.
 
 ```bash
-python plugins/thinking-skills/skills/thinking-router/scripts/route.py --text "every option looks blocked — what's actually fixed?"
-python plugins/thinking-skills/skills/board-game-abstraction/scripts/gameify.py --problem "onboarding drops 32% before first value" --seed 7
-python plugins/thinking-skills/skills/causal-loop-diagram/scripts/cld.py --problem "more reminders → less attention"
+uv run python plugins/thinking-skills/skills/thinking-router/scripts/route.py --text "every option looks blocked — what's actually fixed?"
+uv run python plugins/thinking-skills/skills/board-game-abstraction/scripts/gameify.py --problem "onboarding drops 32% before first value" --seed 7
+uv run python plugins/thinking-skills/skills/causal-loop-diagram/scripts/cld.py --problem "more reminders → less attention"
 ```
 
 ---
@@ -166,7 +169,7 @@ python plugins/thinking-skills/skills/causal-loop-diagram/scripts/cld.py --probl
 
 - **Status:** actively maintained, `0.8.0` — breaking changes bump minor while pre-1.0; every skill ships with `references/provenance.md`.
 - **Licence:** MIT (see `LICENSE`).
-- **Requirements:** Python ≥3.13 for `scripts/*.py`; Claude Code or Codex for `SKILL.md` auto-loading; workspace needs any modern browser, no build, no deps.
+- **Requirements:** `uv` (or Python ≥3.13) for `scripts/*.py` (`uv sync` once, then `uv run python …`); Claude Code, Codex, OMP or Pi for `SKILL.md` auto-loading; workspace needs any modern browser, no build, no deps.
 - **Releases:** [`CHANGELOG.md`](CHANGELOG.md) — `scripts/validate.py` gates every release (`OK` on 40 skills, 38-method router, hub-and-spoke).
 
 ---
