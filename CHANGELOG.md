@@ -2,6 +2,22 @@
 
 All notable changes to `agent-thinking-skills` follow Keep a Changelog and align with the `plugin.json` / `marketplace.json` versions.
 
+## [0.7.0] — 2026-11-11
+
+### Added — Badges & discoverability polish
+
+- **Badges (funnel, assessment-first):** 4-badge row added to `README.md` directly under the title — GitHub release (published version, third-party check), skills.sh (registry), MIT licence (decision-critical per GitHub survey 64%), and harness badges for the two supported surfaces (Claude Code marketplace + Codex skills). Row capped at ≤4 assessment signals per Trockman et al. (ICSE 2018) — conventional signals ("PRs welcome") removed, none added. Fixes prior funnel gap where trust/licence/install signals were hidden below the fold.
+
+### Changed
+
+- `README.md` — knowledge-worker funnel (from `0.6.0` launch-readiness commit) verified with `skills add -l` (40/40 discoverable after YAML quote fix for `double-diamond` / `dreamer-realist-critic`); no behavioural change to skills.
+- `LICENSE` — MIT already added in `18c197a` (A5 fix); now badged.
+
+### Fixed
+
+- **skills.sh indexing:** quoted `description:` frontmatter containing `:` in `double-diamond` and `dreamer-realist-critic` so the skills CLI YAML parser no longer skips them (`Found 38 → 40`).
+
+
 ## [0.6.0] — 2026-11-11
 
 ### Added — Board-Game Abstraction (our own method)

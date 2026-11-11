@@ -1,6 +1,6 @@
 {
   "name": "thinking-skills",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Creative thinking and reasoning skills for agents: reframing, divergent ideation, perspectives, and hardening (40 skills: 27 base + 11 extended + router + divergent-thinking) plus a 38-method thinking-router, gallery, workflows, and shared workspace.",
   "author": {
     "name": "alek"

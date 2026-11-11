@@ -1,5 +1,8 @@
 # agent-thinking-skills
 
+[![GitHub release](https://img.shields.io/github/v/release/aleknitka/agent-thinking-skills)](https://github.com/aleknitka/agent-thinking-skills/releases) [![skills.sh](https://skills.sh/badge/aleknitka/agent-thinking-skills)](https://skills.sh/aleknitka/agent-thinking-skills) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Claude Code & Codex](https://img.shields.io/badge/harness-Claude%20Code%20%7C%20Codex-blueviolet)](https://github.com/aleknitka/agent-thinking-skills#install)
+
+
 > **Make any AI a better thought partner.** 40 micro-methods — with a router, offline helpers, and a shared board — that turn "give me ideas" into *a better question, a wilder set, a stress-tested bet, and a probe you can run tomorrow*.
 
 No prompt engineering. Works with Claude Code, Codex, and any harness that loads skills. Every method: one sharp instruction → a concrete artifact → a tiny experiment.
@@ -152,7 +155,7 @@ python plugins/thinking-skills/skills/causal-loop-diagram/scripts/cld.py --probl
 
 ## Status, licence, and maintenance
 
-- **Status:** actively maintained, `0.6.0` — breaking changes bump minor while pre-1.0; every skill ships with `references/provenance.md`.
+- **Status:** actively maintained, `0.7.0` — breaking changes bump minor while pre-1.0; every skill ships with `references/provenance.md`.
 - **Licence:** MIT (see `LICENSE`).
 - **Requirements:** Python ≥3.13 for `scripts/*.py`; Claude Code or Codex for `SKILL.md` auto-loading; workspace needs any modern browser, no build, no deps.
 - **Releases:** [`CHANGELOG.md`](CHANGELOG.md) — `scripts/validate.py` gates every release (`OK` on 40 skills, 38-method router, hub-and-spoke).
