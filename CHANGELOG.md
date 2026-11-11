@@ -2,6 +2,29 @@
 
 All notable changes to `agent-thinking-skills` follow Keep a Changelog and align with the `plugin.json` / `marketplace.json` versions.
 
+## [0.8.0] — 2026-11-11
+
+### Added — Research provenance on the README + OMP/PI installability
+
+- **Per-skill provenance on the toolkit table:** every row in `## The toolkit` now ends in `Source` → `references/provenance.md` (original 27: de Bono, Aristotle/Descartes, LUMA, Kahneman, Eberle, Osborn, Gentner, Zwicky, Rohrbach, Knapp, Freeman/Mitchell, Design Council, Altshuller, Fauconnier/Turner, Dotmocracy, Delbecq & Van de Ven, etc.). Research extensions keep `Provenance` → `references/provenance.md` plus OpenAlex/arXiv IDs where they exist (SIT `W4407721440`, C-K `W2049599278`, bodystorming `arXiv:1308.4978`). Every skill was already traceable via its own `references/provenance.md`; now the README surfaces it without duplicating 40 long-form pages.
+
+- **Research header that earns its name:** `### Beyond the original 27 — what research added` → `### Research-sourced extensions — 11 methods beyond the original 27` plus callout `> **Research synthesis:** these 11 were selected from 41 candidates across 6 families — see synthesis.md (ranked table + gaps) and papers.md (20 papers: Guilford/Osborn/de Bono/Rohrbach/Altshuller, Scott 2004, Sio 2024, Mullen 1991, + 7 arXiv/8 OpenAlex)`. Makes the added work checkable in one click, and explains why `dot-voting-prioritize`/`nominal-group-technique` live in the research block in the source paper but are already listed in `Stronger options` where a user looks first (deduped to avoid double-count).
+
+- **Harness reach — OMP + Pi ship with the marketplace:** `/.omp-plugin/marketplace.json` now committed (copy of `/.claude-plugin/marketplace.json` at `0.8.0`) so `omp` prefers the `.omp-plugin/` catalog per `skills/authoring-marketplaces.md` without falling back. Install docs now show all four surfaces:
+
+  ```
+  /plugin marketplace add aleknitka/agent-thinking-skills        # Claude Code
+  /marketplace add aleknitka/agent-thinking-skills               # OMP
+  npx skills add aleknitka/agent-thinking-skills                 # Pi / Codex / any skills.sh harness
+  ```
+
+  Badges now verify online: `GitHub release` → `/releases`, `skills.sh` → `skills-badge.vercel.app/badge/aleknitka/agent-thinking-skills` → `https://www.skills.sh/aleknitka/agent-thinking-skills`, `Claude Code` → `code.claude.com/docs/en/plugin-marketplaces`, `Codex` → `developers.openai.com/codex/skills`, `OMP` → `omp.sh/docs/marketplace`, `Pi` → `pi.dev/packages` (6 badges, one per installable surface; cap discussion in 0.7.0 changelog still applies, but harness coverage is now the scarce signal).
+
+### Changed
+
+- `README.md` — 5-table fix: added `Source`/`Provenance` column, deduped `dot-voting-prioritize`/`nominal-group-technique` from the research block, fixed `|---|---|---|` separators (4 columns), synced title/install/badges to `megamouth/README.md`.
+- `.omp-plugin/marketplace.json` — newly tracked; version `0.7.0` → `0.8.0` in lockstep with `/.claude-plugin/marketplace.json` and `plugins/thinking-skills/.claude-plugin/plugin.json`.
+
 ## [0.7.0] — 2026-11-11
 
 ### Added — Badges & discoverability polish

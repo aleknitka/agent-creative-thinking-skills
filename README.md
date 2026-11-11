@@ -1,7 +1,6 @@
 # agent-thinking-skills
 
-[![GitHub release](https://img.shields.io/github/v/release/aleknitka/agent-thinking-skills)](https://github.com/aleknitka/agent-thinking-skills/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Claude Code & Codex](https://img.shields.io/badge/harness-Claude%20Code%20%7C%20Codex-blueviolet)](https://github.com/aleknitka/agent-thinking-skills#install)
-
+[![GitHub release](https://img.shields.io/github/v/release/aleknitka/agent-thinking-skills)](https://github.com/aleknitka/agent-thinking-skills/releases) [![skills.sh](https://skills-badge.vercel.app/badge/aleknitka/agent-thinking-skills)](https://www.skills.sh/aleknitka/agent-thinking-skills) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Claude Code](https://img.shields.io/badge/Claude%20Code-marketplace-8b5cf6?logo=anthropic)](https://code.claude.com/docs/en/plugin-marketplaces) [![Codex](https://img.shields.io/badge/Codex-skills-000000?logo=openai)](https://developers.openai.com/codex/skills) [![OMP & Pi](https://img.shields.io/badge/OMP%20%26%20Pi-marketplace-ff6b35)](https://pi.dev/packages)
 
 > **Make any AI a better thought partner.** 40 micro-methods — with a router, offline helpers, and a shared board — that turn "give me ideas" into *a better question, a wilder set, a stress-tested bet, and a probe you can run tomorrow*.
 
@@ -10,8 +9,14 @@
 No prompt engineering. Works with Claude Code, Codex, and any harness that loads skills. Every method: one sharp instruction → a concrete artifact → a tiny experiment.
 
 ```bash
-/plugin marketplace add <github-user>/agent-thinking-skills
+# Claude Code
+/plugin marketplace add aleknitka/agent-thinking-skills
 /plugin install thinking-skills@agent-thinking-skills
+# OMP (same catalog — .omp-plugin/marketplace.json now shipped)
+/marketplace add aleknitka/agent-thinking-skills
+/marketplace install thinking-skills@agent-thinking-skills
+# Pi / any skills.sh harness
+npx skills add aleknitka/agent-thinking-skills
 # then in any conversation:
 > Help me think this through — not sure which method fits.
 # → thinking-router triages and hands off to 1–2 methods with your okay.
@@ -61,68 +66,70 @@ Every skill follows progressive disclosure: `SKILL.md` (lean process, always loa
 
 ### Reframe the problem
 
-| Skill | What it does | Use when |
-|---|---|---|
-| `lateral-thinking` | Provocations (Po) → movement → fresh frames | Answers feel predictable / stuck on the obvious |
-| `first-principles` | Strip to fundamentals, rebuild without convention | "This is how it's done" dominates |
-| `challenge-assumptions` | Inventory beliefs → test false/unnecessary/reversed | Problem feels overconstrained |
-| `question-storming` | Questions before answers, revise the brief | Brief is vague / prematurely solution-focused |
-| `abstraction-laddering` | Why-up / how-down across vision → action | Framing too narrow or too abstract |
-| `inversion` | Guarantee failure → derive design principles | Direct reasoning misses obstacles |
+| Skill | What it does | Use when | Source |
+|---|---|---|---|
+| `lateral-thinking` | Provocations (Po) → movement → fresh frames | Answers feel predictable / stuck on the obvious | [de Bono](plugins/thinking-skills/skills/lateral-thinking/references/provenance.md) |
+| `first-principles` | Strip to fundamentals, rebuild without convention | "This is how it's done" dominates | [Aristotle/Descartes](plugins/thinking-skills/skills/first-principles/references/provenance.md) |
+| `challenge-assumptions` | Inventory beliefs → test false/unnecessary/reversed | Problem feels overconstrained | [de Bono/Argyris](plugins/thinking-skills/skills/challenge-assumptions/references/provenance.md) |
+| `question-storming` | Questions before answers, revise the brief | Brief is vague / prematurely solution-focused | [Design framing](plugins/thinking-skills/skills/question-storming/references/provenance.md) |
+| `abstraction-laddering` | Why-up / how-down across vision → action | Framing too narrow or too abstract | [LUMA](plugins/thinking-skills/skills/abstraction-laddering/references/provenance.md) |
+| `inversion` | Guarantee failure → derive design principles | Direct reasoning misses obstacles | [Kahneman/Inversion](plugins/thinking-skills/skills/inversion/references/provenance.md) |
 
 ### Generate more varied ideas
 
-| Skill | What it does | Use when |
-|---|---|---|
-| `scamper` | 7 operators on a baseline | Baseline exists to improve |
-| `reverse-brainstorming` | Worsen, then reverse | Brainstorming has stalled |
-| `forced-connections` | Random stimulus → forced mapping | Ideas too similar |
-| `analogical-thinking` | Transfer mechanism, not surface feature | Another field may have solved this |
-| `morphological-analysis` | Dimensions × options matrix | Several independent choices |
-| `brainwriting` | Silent written passes, build, cluster | Early voices anchor / loud voices dominate |
-| `crazy-eights` | 8 distinct concepts in 8 minutes | Need a quick burst |
-| `constraint-driven-ideation` | Forcing constraints → insights | Open brief → generic ideas |
-| `ideal-final-result` | Best benefit, no added harm/cost | Incremental improvement insufficient |
+| Skill | What it does | Use when | Source |
+|---|---|---|---|
+| `scamper` | 7 operators on a baseline | Baseline exists to improve | [Eberle](plugins/thinking-skills/skills/scamper/references/provenance.md) |
+| `reverse-brainstorming` | Worsen, then reverse | Brainstorming has stalled | [Osborn/Brainstorming](plugins/thinking-skills/skills/reverse-brainstorming/references/provenance.md) |
+| `forced-connections` | Random stimulus → forced mapping | Ideas too similar | [de Bono/Gordon](plugins/thinking-skills/skills/forced-connections/references/provenance.md) |
+| `analogical-thinking` | Transfer mechanism, not surface feature | Another field may have solved this | [Gentner](plugins/thinking-skills/skills/analogical-thinking/references/provenance.md) |
+| `morphological-analysis` | Dimensions × options matrix | Several independent choices | [Zwicky](plugins/thinking-skills/skills/morphological-analysis/references/provenance.md) |
+| `brainwriting` | Silent written passes, build, cluster | Early voices anchor / loud voices dominate | [Rohrbach](plugins/thinking-skills/skills/brainwriting/references/provenance.md) |
+| `crazy-eights` | 8 distinct concepts in 8 minutes | Need a quick burst | [Knapp/Sprint](plugins/thinking-skills/skills/crazy-eights/references/provenance.md) |
+| `constraint-driven-ideation` | Forcing constraints → insights | Open brief → generic ideas | [TRIZ-adjacent](plugins/thinking-skills/skills/constraint-driven-ideation/references/provenance.md) |
+| `ideal-final-result` | Best benefit, no added harm/cost | Incremental improvement insufficient | [Altshuller/TRIZ](plugins/thinking-skills/skills/ideal-final-result/references/provenance.md) |
 
 ### Explore perspectives & possibilities
 
-| Skill | What it does | Use when |
-|---|---|---|
-| `six-thinking-hats` | 6 modes one at a time (W/R/Y/Bl/G/Bu) | Critique interrupts brainstorming |
-| `dreamer-realist-critic` | Disney 3 rooms (dream → realism → critique) | Bold idea needs a path to execution |
-| `stakeholder-perspectives` | Tensions across groups, better tradeoffs | One group's fix hurts another |
-| `what-if` | Single-assumption worlds | Blue-sky / strategic exploration |
-| `scenario-planning` | 2×2 worlds, robust options, signals | Future uncertain |
-| `backcasting` | Future → milestones | No route to a long-term ambition |
-| `futures-wheel` | 1st/2nd/nth-order consequences | Ripple effects matter |
+| Skill | What it does | Use when | Source |
+|---|---|---|---|
+| `six-thinking-hats` | 6 modes one at a time (W/R/Y/Bl/G/Bu) | Critique interrupts brainstorming | [de Bono](plugins/thinking-skills/skills/six-thinking-hats/references/provenance.md) |
+| `dreamer-realist-critic` | Disney 3 rooms (dream → realism → critique) | Bold idea needs a path to execution | [Dilts/Disney](plugins/thinking-skills/skills/dreamer-realist-critic/references/provenance.md) |
+| `stakeholder-perspectives` | Tensions across groups, better tradeoffs | One group's fix hurts another | [Freeman/Mitchell](plugins/thinking-skills/skills/stakeholder-perspectives/references/provenance.md) |
+| `what-if` | Single-assumption worlds | Blue-sky / strategic exploration | [Scenario logic](plugins/thinking-skills/skills/what-if/references/provenance.md) |
+| `scenario-planning` | 2×2 worlds, robust options, signals | Future uncertain | [Wack/Schwartz](plugins/thinking-skills/skills/scenario-planning/references/provenance.md) |
+| `backcasting` | Future → milestones | No route to a long-term ambition | [Robinson](plugins/thinking-skills/skills/backcasting/references/provenance.md) |
+| `futures-wheel` | 1st/2nd/nth-order consequences | Ripple effects matter | [Glenn](plugins/thinking-skills/skills/futures-wheel/references/provenance.md) |
 
 ### Turn exploration into stronger options
 
-| Skill | What it does | Use when |
-|---|---|---|
-| `double-diamond` | Discover/Define → Develop/Deliver; orchestrates | Need discovery *and* delivery |
-| `triz-contradictions` | Break a recurring tradeoff (40 principles) | Same tradeoff keeps reappearing |
-| `concept-blending` | Synthesize mechanisms, not feature piles | Several partial ideas each carry value |
-| `premortem` | "Already failed" → prevention | Before commitment |
-| `options-portfolio` | Achievable / ambitious / exploratory + probe | Broad set needs narrowing |
-| `dot-voting-prioritize` | N/3 dots → Impact–Effort / ICE → keep/pivot/kill | Need visible priority |
-| `nominal-group-technique` | Silent write → round-robin → vote / Delphi | Need hierarchy-proof ranking |
-
-### Beyond the original 27 — what research added
-
 | Skill | What it does | Use when | Source |
 |---|---|---|---|
-| `systematic-inventive-thinking` | 5 closed-world operators — no new resource types | Concrete system, strict constraints |
-| `c-k-theory` | Expand Concept & Knowledge together | Variation exhausted |
-| `bodystorming` | Enact with props/space | Interaction hard to picture |
-| `rich-picture-catwoe` | Visual mess → CATWOE → root definition | No shared picture |
-| `causal-loop-diagram` | R/B loops, delays, leverage (Meadows) | Fix keeps making its problem worse |
-| `synectics` | 4 analogies + excursion → springboards | Forced connections too shallow |
-| `liberating-structures` | 6 micro-structures (1-2-4-All … Ecocycle) | Hierarchy dominates |
-| `lotus-blossom` | 8×8 radial — 72 blooms with lineage | 8 not enough; need layered breadth |
-| `board-game-abstraction` | Playable mechanics → 1-page rules + 3 playtests | Too political/complex to discuss directly |
+| `double-diamond` | Discover/Define → Develop/Deliver; orchestrates | Need discovery *and* delivery | [Design Council](plugins/thinking-skills/skills/double-diamond/references/provenance.md) |
+| `triz-contradictions` | Break a recurring tradeoff (40 principles) | Same tradeoff keeps reappearing | [Altshuller](plugins/thinking-skills/skills/triz-contradictions/references/provenance.md) |
+| `concept-blending` | Synthesize mechanisms, not feature piles | Several partial ideas each carry value | [Fauconnier/Turner](plugins/thinking-skills/skills/concept-blending/references/provenance.md) |
+| `premortem` | "Already failed" → prevention | Before commitment | [Kahneman](plugins/thinking-skills/skills/premortem/references/provenance.md) |
+| `options-portfolio` | Achievable / ambitious / exploratory + probe | Broad set needs narrowing | [Portfolio logic](plugins/thinking-skills/skills/options-portfolio/references/provenance.md) |
+| `dot-voting-prioritize` | N/3 dots → Impact–Effort / ICE → keep/pivot/kill | Need visible priority | [Dotmocracy](plugins/thinking-skills/skills/dot-voting-prioritize/references/provenance.md) |
+| `nominal-group-technique` | Silent write → round-robin → vote / Delphi | Need hierarchy-proof ranking | [Delbecq & Van de Ven](plugins/thinking-skills/skills/nominal-group-technique/references/provenance.md) |
 
-Source: [`megamouth/research/extended-methods/synthesis.md`](megamouth/research/extended-methods/synthesis.md) (11 from 41 candidates + 7 arXiv/8 OpenAlex).
+### Research-sourced extensions — 11 methods beyond the original 27
+
+| Skill | What it does | Use when | Provenance |
+|---|---|---|---|---|---|
+| `systematic-inventive-thinking` | 5 closed-world operators — no new resource types | Concrete system, strict constraints | [SIT · Horowitz/Goldenberg](plugins/thinking-skills/skills/systematic-inventive-thinking/references/provenance.md) · [W4407721440](https://openalex.org/W4407721440) |
+| `c-k-theory` | Expand Concept & Knowledge together | Variation exhausted | [C-K · Hatchuel & Weil](plugins/thinking-skills/skills/c-k-theory/references/provenance.md) · [W2049599278](https://openalex.org/W2049599278) |
+| `bodystorming` | Enact with props/space | Interaction hard to picture | [Bodystorming · HCI](plugins/thinking-skills/skills/bodystorming/references/provenance.md) · [arXiv:1308.4978](https://arxiv.org/abs/1308.4978) |
+| `rich-picture-catwoe` | Visual mess → CATWOE → root definition | No shared picture | [SSM · Checkland](plugins/thinking-skills/skills/rich-picture-catwoe/references/provenance.md) |
+| `causal-loop-diagram` | R/B loops, delays, leverage (Meadows) | Fix keeps making its problem worse | [Systems · Forrester/Meadows](plugins/thinking-skills/skills/causal-loop-diagram/references/provenance.md) |
+| `synectics` | 4 analogies + excursion → springboards | Forced connections too shallow | [Gordon & Prince](plugins/thinking-skills/skills/synectics/references/provenance.md) |
+| `liberating-structures` | 6 micro-structures (1-2-4-All … Ecocycle) | Hierarchy dominates | [Lipmanowicz/McCandless](plugins/thinking-skills/skills/liberating-structures/references/provenance.md) |
+| `lotus-blossom` | 8×8 radial — 72 blooms with lineage | 8 not enough; need layered breadth | [Matsumura](plugins/thinking-skills/skills/lotus-blossom/references/provenance.md) |
+| `board-game-abstraction` | Playable mechanics → 1-page rules + 3 playtests | Too political/complex to discuss directly | [Beer Game · Sterman](plugins/thinking-skills/skills/board-game-abstraction/references/provenance.md) |
+| `dot-voting-prioritize` | Structured dot voting (N/3) + Impact–Effort · ICE | Need visible priority | [Dotmocracy](plugins/thinking-skills/skills/dot-voting-prioritize/references/provenance.md) |
+| `nominal-group-technique` | Silent write → vote → Delphi | Need hierarchy-proof ranking | [Delbecq & Van de Ven](plugins/thinking-skills/skills/nominal-group-technique/references/provenance.md) |
+
+> **Research synthesis:** these 11 were selected from 41 candidates across 6 families — see [synthesis.md](megamouth/research/extended-methods/synthesis.md) (ranked table + gaps) and [papers.md](megamouth/research/extended-methods/papers.md) (20 papers: Guilford/Osborn/de Bono/Rohrbach/Altshuller, meta-analyses Scott 2004, Sio 2024, Mullen 1991, + 7 arXiv/8 OpenAlex). Every skill's full lineage and evidence limits live in its `references/provenance.md` linked above.
 
 ### Router & shared surface
 
@@ -157,7 +164,7 @@ python plugins/thinking-skills/skills/causal-loop-diagram/scripts/cld.py --probl
 
 ## Status, licence, and maintenance
 
-- **Status:** actively maintained, `0.7.0` — breaking changes bump minor while pre-1.0; every skill ships with `references/provenance.md`.
+- **Status:** actively maintained, `0.8.0` — breaking changes bump minor while pre-1.0; every skill ships with `references/provenance.md`.
 - **Licence:** MIT (see `LICENSE`).
 - **Requirements:** Python ≥3.13 for `scripts/*.py`; Claude Code or Codex for `SKILL.md` auto-loading; workspace needs any modern browser, no build, no deps.
 - **Releases:** [`CHANGELOG.md`](CHANGELOG.md) — `scripts/validate.py` gates every release (`OK` on 40 skills, 38-method router, hub-and-spoke).
@@ -169,4 +176,3 @@ python plugins/thinking-skills/skills/causal-loop-diagram/scripts/cld.py --probl
 - Layout & progressive-disclosure rules: [`CLAUDE.md`](CLAUDE.md)
 - Start a new skill: `cp -r templates/skill plugins/thinking-skills/skills/<name>` → `python3 scripts/validate.py`
 - Full docs site: link when published (currently code-host + `megamouth/docs/` + `examples/gallery.md`)
-
