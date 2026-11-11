@@ -1,6 +1,6 @@
 ---
 name: double-diamond
-description: Alternate divergence and convergence twice: discover and define the problem, then develop and deliver a solution. Use when work needs both problem discovery and solution exploration — produce a clear problem definition, candidate directions, and a validation plan. Provides structure for combining other methods.
+description: "Alternate divergence and convergence twice: discover and define the problem, then develop and deliver a solution. Use when work needs both problem discovery and solution exploration — produce a clear problem definition, candidate directions, and a validation plan. Provides structure for combining other methods."
 ---
 
 # Double Diamond

@@ -1,6 +1,6 @@
 ---
 name: dreamer-realist-critic
-description: Explore an idea in three phases: dreamer imagines possibilities, realist develops execution, and critic examines weaknesses — keeping phases distinct. Use when a bold idea needs a path to execution — produce a vision, a practical outline, and revisions prompted by critique.
+description: "Explore an idea in three phases: dreamer imagines possibilities, realist develops execution, and critic examines weaknesses — keeping phases distinct. Use when a bold idea needs a path to execution — produce a vision, a practical outline, and revisions prompted by critique."
 ---
 
 # Disney Creative Strategy
