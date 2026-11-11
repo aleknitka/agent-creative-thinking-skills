@@ -1,9 +1,11 @@
 # agent-thinking-skills
 
-[![GitHub release](https://img.shields.io/github/v/release/aleknitka/agent-thinking-skills)](https://github.com/aleknitka/agent-thinking-skills/releases) [![skills.sh](https://skills.sh/badge/aleknitka/agent-thinking-skills)](https://skills.sh/aleknitka/agent-thinking-skills) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Claude Code & Codex](https://img.shields.io/badge/harness-Claude%20Code%20%7C%20Codex-blueviolet)](https://github.com/aleknitka/agent-thinking-skills#install)
+[![GitHub release](https://img.shields.io/github/v/release/aleknitka/agent-thinking-skills)](https://github.com/aleknitka/agent-thinking-skills/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Claude Code & Codex](https://img.shields.io/badge/harness-Claude%20Code%20%7C%20Codex-blueviolet)](https://github.com/aleknitka/agent-thinking-skills#install)
 
 
 > **Make any AI a better thought partner.** 40 micro-methods — with a router, offline helpers, and a shared board — that turn "give me ideas" into *a better question, a wilder set, a stress-tested bet, and a probe you can run tomorrow*.
+
+![Launch film — 40 methods in 12 seconds](assets/launch.gif)
 
 No prompt engineering. Works with Claude Code, Codex, and any harness that loads skills. Every method: one sharp instruction → a concrete artifact → a tiny experiment.
 
