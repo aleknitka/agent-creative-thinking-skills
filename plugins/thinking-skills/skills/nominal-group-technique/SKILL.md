@@ -20,7 +20,7 @@ If unsure this is the right method, start with [thinking-router](../thinking-rou
 
 ## When NOT to use (brief)
 
-- You need divergence, not convergence → `brainwriting`, `lotus-blossom`, or `crazy-eights`.
+- You need divergence, not convergence → `brainwriting`, `forced-connections`, or `crazy-eights`.
 - A quick preference signal is enough → `dot-voting-prioritize` (lighter).
 - The question is still vague → `question-storming` before any ranking.
 
@@ -43,6 +43,7 @@ If unsure this is the right method, start with [thinking-router](../thinking-rou
 - Write before you speak — every idea is written before any discussion.
 - One idea per turn in round-robin; no piggy-backing, no evaluation language until voting.
 - Clarification only — "what do you mean?" is allowed; "that won't work" is not until after voting.
+- Agree the aggregation rule, shortlist size, and consensus threshold before round 1; never move them after seeing the tally.
 - Delphi anonymity is real — no attribution across rounds.
 - Votes are traceable but not weaponizable — tallies shown, dissent named, coercion forbidden.
 - Label fact / assumption / speculation; ranking is preference, not evidence.
