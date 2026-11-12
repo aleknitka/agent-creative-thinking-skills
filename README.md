@@ -1,10 +1,10 @@
 # agent-creative-thinking-skills
 
-[![GitHub release](https://img.shields.io/github/v/release/aleknitka/agent-creative-thinking-skills)](https://github.com/aleknitka/agent-creative-thinking-skills/releases) [![skills.sh](https://skills-badge.vercel.app/badge/aleknitka/agent-creative-thinking-skills)](https://www.skills.sh/aleknitka/agent-creative-thinking-skills) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Claude Code](https://img.shields.io/badge/Claude%20Code-marketplace-8b5cf6?logo=anthropic)](https://code.claude.com/docs/en/plugin-marketplaces) [![Codex](https://img.shields.io/badge/Codex-skills-000000?logo=openai)](https://developers.openai.com/codex/skills) [![OMP & Pi](https://img.shields.io/badge/OMP%20%26%20Pi-marketplace-ff6b35)](https://pi.dev/packages) [![Built with AI](https://img.shields.io/badge/Built%20with-AI%20%E2%9C%A8-8b5cf6)](https://github.com/aleknitka/agent-creative-thinking-skills)
+[![GitHub release](https://img.shields.io/github/v/release/aleknitka/agent-creative-thinking-skills)](https://github.com/aleknitka/agent-creative-thinking-skills/releases) [![skills.sh](https://skills-badge.vercel.app/badge/aleknitka/agent-creative-thinking-skills)](https://www.skills.sh/aleknitka/agent-creative-thinking-skills) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Claude Code](https://img.shields.io/badge/Claude%20Code-marketplace-8b5cf6?logo=anthropic)](https://code.claude.com/docs/en/plugin-marketplaces) [![Codex](https://img.shields.io/badge/Codex-skills-000000?logo=openai)](https://developers.openai.com/codex/skills) [![OMP & Pi](https://img.shields.io/badge/OMP%20%26%20Pi-marketplace-ff6b35)](https://pi.dev/packages) [![Built with AI — human-guided](https://img.shields.io/badge/Built%20with%20AI-human--guided%20%E2%80%A2%20OMP%20%2B%20Muse%20Spark%20%E2%80%A2%20~95%25%20AI-8b5cf6)](https://github.com/aleknitka/agent-creative-thinking-skills)
 
 > **Make any AI a better thought partner.** 40 micro-methods — with a router, offline helpers, and a shared board — that turn "give me ideas" into *a better question, a wilder set, a stress-tested bet, and a probe you can run tomorrow*.
 
-![Launch film — 40 methods in 12 seconds](assets/launch.gif)
+![Launch film — 40 methods in 36 seconds](assets/launch.gif)
 
 No prompt engineering. Works with Claude Code, Codex, and any harness that loads skills. Every method: one sharp instruction → a concrete artifact → a tiny experiment.
 
@@ -171,6 +171,37 @@ uv run python plugins/creative-thinking-skills/skills/causal-loop-diagram/script
 - **Licence:** MIT (see `LICENSE`).
 - **Requirements:** `uv` (or Python ≥3.13) for `scripts/*.py` (`uv sync` once, then `uv run python …`); Claude Code, Codex, OMP or Pi for `SKILL.md` auto-loading; workspace needs any modern browser, no build, no deps.
 - **Releases:** [`CHANGELOG.md`](CHANGELOG.md) — `scripts/validate.py` gates every release (`OK` on 40 skills, 38-method router, hub-and-spoke).
+
+
+
+---
+
+## Transparency · AI disclosure — EU AI Act Art. 50
+
+**Human-guided, ~95% AI-generated — OMP + Meta Muse Spark (muse-spark-1.2).** This repo, its docs, skills, and the launch film were generated with AI (OpenAI Codex / OMP harness + Meta Muse Spark as coding agent) under human guidance, review and editorial control. All content remains the author's responsibility.
+
+<table>
+<tr>
+<td width="220">
+
+**EU official disclosure — voluntary.**
+
+[![EU — AI Generated — light](assets/eu-ai/eu-ai-generated-black.svg)](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content)
+</td>
+<td>
+
+[EU Icons for labelling AI-generated content](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content) — official set for **Article 50 AI Act** + [Code of Practice §2](https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content) (enforcement 2 Aug 2026, penalties to €15M / 3% turnover). The icons are **free to use without attribution** (Commission/AI Office). This project is not a deepfake nor a publication informing the public on matters of public interest, so the legal labelling duty does not strictly apply — we disclose voluntarily for transparency.
+
+- **Mark used here:** `AI GENERATED` (white pill · black text for dark backgrounds · black pill for light) — variant reproduced locally at [`assets/eu-ai/`](assets/eu-ai/) from the official [SVG ZIP](https://ec.europa.eu/newsroom/dae/redirection/document/129546) / [PNG ZIP](https://ec.europa.eu/newsroom/dae/redirection/document/129547). (`AI` + `AI MODIFIED` variants also available.)
+- **Where shown:** README transparency section, launch film end card (12s), and as an embedded mark on AI-generated artefacts when shared.
+
+</td>
+</tr>
+</table>
+
+**Development transparency (CC0):** model-level badge via [AI Disclosure Badges](https://disclosingai.com/) ([mau-vera/built-with-ai-badges](https://github.com/mau-vera/built-with-ai-badges), CC0) — local copies in [`assets/badges/`](assets/badges/), adapted from `AI Assisted · Claude` to **AI Assisted · OMP + Muse Spark · human-guided**.
+
+> *No validator, no compliance checklist — a voluntary "nutrition label" for how this was made.*
 
 ---
 
