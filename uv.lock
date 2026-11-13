@@ -3,6 +3,6 @@ revision = 5
 requires-python = ">=3.13"
 
 [[package]]
-name = "agent-thinking-skills"
+name = "agent-creative-thinking-skills"
 version = "0.8.0"
 source = { editable = "." }
