@@ -1,0 +1,24 @@
+name: branch-naming
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce branch naming
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          echo "Head branch: $BRANCH"
+          if [[ "$BRANCH" =~ ^(master|dev|aleknitka/.+)$ ]]; then
+            echo "✓ Exempt branch: $BRANCH"
+            exit 0
+          fi
+          if [[ "$BRANCH" =~ ^(feat|fix|hotfix|docs|chore)/.+ ]]; then
+            echo "✓ Branch name OK: $BRANCH"
+            exit 0
+          fi
+          echo "::error::Branch '$BRANCH' must match ^(feat|fix|hotfix|docs|chore)/.+  (or master/dev). Example: feat/film-36s, fix/validate, docs/readme-lean"
+          exit 1
